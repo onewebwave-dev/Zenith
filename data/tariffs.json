@@ -2,7 +2,7 @@
   "base": {
     "name": "Base",
     "tagline": "Небольшой аккуратный сайт: лендинг, визитка, портфолио.",
-    "price_frontend": 2990,
+    "price_frontend": 3990,
     "price_backend": 5490,
     "time": "Ориентировочный срок: 1–2 дня",
     "features": [
