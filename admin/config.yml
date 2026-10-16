@@ -1,0 +1,100 @@
+backend:
+  name: github
+  repo: onewebwave-dev/Zenith
+  branch: main
+
+media_folder: "assets"
+public_folder: "/assets"
+
+collections:
+  - name: "tariffs"
+    label: "Тарифы (offers.html)"
+    files:
+      - name: "tariffs_data"
+        label: "BASE / PREMIUM / ELITE"
+        file: "data/tariffs.json"
+        fields:
+          - label: "BASE"
+            name: "base"
+            widget: "object"
+            fields:
+              - {label: "Название", name: "name", widget: "string"}
+              - {label: "Короткое описание", name: "tagline", widget: "text"}
+              - {label: "Цена Frontend", name: "price_frontend", widget: "number"}
+              - {label: "Цена Frontend + Backend", name: "price_backend", widget: "number"}
+              - {label: "Срок", name: "time", widget: "string"}
+              - {label: "Список возможностей", name: "features", widget: "list", field: {label: "Пункт", name: "item", widget: "string"}}
+          - label: "PREMIUM"
+            name: "premium"
+            widget: "object"
+            fields:
+              - {label: "Название", name: "name", widget: "string"}
+              - {label: "Короткое описание", name: "tagline", widget: "text"}
+              - {label: "Цена Frontend", name: "price_frontend", widget: "number"}
+              - {label: "Цена Frontend + Backend", name: "price_backend", widget: "number"}
+              - {label: "Срок", name: "time", widget: "string"}
+              - {label: "Список возможностей", name: "features", widget: "list", field: {label: "Пункт", name: "item", widget: "string"}}
+          - label: "ELITE"
+            name: "elite"
+            widget: "object"
+            fields:
+              - {label: "Название", name: "name", widget: "string"}
+              - {label: "Короткое описание", name: "tagline", widget: "text"}
+              - {label: "Цена Frontend", name: "price_frontend", widget: "number"}
+              - {label: "Цена Frontend + Backend", name: "price_backend", widget: "number"}
+              - {label: "Срок", name: "time", widget: "string"}
+              - {label: "Список возможностей", name: "features", widget: "list", field: {label: "Пункт", name: "item", widget: "string"}}
+
+  - name: "custom"
+    label: "Конструктор (Custom)"
+    files:
+      - name: "prices"
+        label: "Цены калькулятора"
+        file: "data/prices.json"
+        fields:
+          - {label: "Базовая цена", name: "base_price", widget: "number"}
+          - {label: "Цена за 2-ю страницу", name: "page_2", widget: "number"}
+          - {label: "Цена за 3-ю страницу", name: "page_3", widget: "number"}
+          - {label: "Цена за 4-ю страницу", name: "page_4", widget: "number"}
+          - {label: "Цена за 5-ю страницу", name: "page_5", widget: "number"}
+          - {label: "Цена за 6-ю страницу", name: "page_6", widget: "number"}
+          - label: "Блоки"
+            name: "blocks"
+            widget: "list"
+            fields:
+              - {label: "Ключ (латиницей)", name: "value", widget: "string"}
+              - {label: "Название", name: "label", widget: "string"}
+              - {label: "Описание", name: "desc", widget: "string"}
+              - {label: "Цена", name: "price", widget: "number"}
+          - label: "Фишки"
+            name: "features"
+            widget: "list"
+            fields:
+              - {label: "Ключ (латиницей)", name: "value", widget: "string"}
+              - {label: "Название", name: "label", widget: "string"}
+              - {label: "Описание", name: "desc", widget: "string"}
+              - {label: "Цена", name: "price", widget: "number"}
+          - label: "Анимации"
+            name: "anims"
+            widget: "list"
+            fields:
+              - {label: "Ключ", name: "value", widget: "string"}
+              - {label: "Название", name: "label", widget: "string"}
+              - {label: "Описание", name: "desc", widget: "string"}
+              - {label: "Цена", name: "price", widget: "number"}
+          - label: "Стили"
+            name: "styles"
+            widget: "list"
+            fields:
+              - {label: "Ключ", name: "value", widget: "string"}
+              - {label: "Название", name: "label", widget: "string"}
+              - {label: "Описание", name: "desc", widget: "string"}
+              - {label: "Цена", name: "price", widget: "number"}
+          - label: "Сроки"
+            name: "deadlines"
+            widget: "list"
+            fields:
+              - {label: "Ключ", name: "value", widget: "string"}
+              - {label: "Название", name: "label", widget: "string"}
+              - {label: "Описание", name: "desc", widget: "string"}
+              - {label: "Надбавка (может быть отрицательной)", name: "price", widget: "number"}
