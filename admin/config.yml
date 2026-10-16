@@ -1,0 +1,16 @@
+backend:
+  name: git-gateway
+  branch: main # На GitHub у вас главная ветка называется main
+
+media_folder: "assets" # Картинки будем сохранять в вашу существующую папку assets
+public_folder: "/assets"
+
+collections:
+  - name: "pages"
+    label: "Страницы сайта"
+    files:
+      - file: "index.html"
+        label: "Главная страница (index)"
+        name: "index"
+        fields:
+          - { label: "Заголовок вкладки (Title)", name: "title", widget: "string" }

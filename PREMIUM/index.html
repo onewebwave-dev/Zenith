@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PULSE Studio — звук, движение, визуал [ДЕМО]</title>
+<meta name="description" content="ДЕМО-версия сайта студии аудиовизуального дизайна PULSE. Весь контент — тестовый.">
+<meta name="theme-color" content="#06060a">
+
+<!-- Фавиконка: пульсирующая точка в квадрате с градиентом -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300eaff'/%3E%3Cstop offset='1' stop-color='%23b4ff00'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2306060a'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='url(%23g)' stroke-width='2' opacity='.35'/%3E%3Ccircle cx='32' cy='32' r='12' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300eaff'/%3E%3Cstop offset='1' stop-color='%23b4ff00'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2306060a'/%3E%3Ccircle cx='32' cy='32' r='12' fill='url(%23g)'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#06060a;--f:#0d0d14;--l:#ffffff12;--l2:#ffffff1f;
+--t:#f0f0f6;--m:#8a8a9c;--m2:#5a5a6a;
+--c:#00eaff;--p:#ff0080;--li:#b4ff00;--vi:#8b5cf6;
+--e:cubic-bezier(.16,1,.3,1);
+--r:14px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font:15px/1.6 Manrope,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body.lock{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:0;color:inherit;cursor:pointer}
+::selection{background:var(--c);color:#000}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#06060a}
+::-webkit-scrollbar-thumb{background:#2a2a3a;border-radius:6px}
+
+/* ---------- фон: статичный, глубокий ---------- */
+.bg{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden;background:
+radial-gradient(50vw 40vw at 12% -5%,#00eaff26,transparent 65%),
+radial-gradient(55vw 45vw at 88% 55%,#ff00801f,transparent 65%),
+radial-gradient(45vw 40vw at 50% 105%,#8b5cf61f,transparent 65%),
+linear-gradient(180deg,#06060a 0%,#08080f 45%,#0a0a14 100%)}
+.bg::before,.bg::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.bg::before{width:min(760px,80vw);height:min(760px,80vw);top:-18%;left:-12%;background:radial-gradient(circle,#00eaff40 0%,#00eaff14 35%,transparent 70%);filter:blur(70px);opacity:.85}
+.bg::after{width:min(660px,72vw);height:min(660px,72vw);bottom:-18%;right:-14%;background:radial-gradient(circle,#ff008033 0%,#8b5cf61a 40%,transparent 70%);filter:blur(80px);opacity:.8}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:
+linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+background-size:64px 64px;
+-webkit-mask-image:radial-gradient(ellipse at center,#000 0%,transparent 78%);
+mask-image:radial-gradient(ellipse at center,#000 0%,transparent 78%)}
+
+/* ---------- ДЕМО-бейдж (снизу-слева, не пересекается с nav) ---------- */
+.demo-badge{position:fixed;bottom:16px;left:16px;z-index:1000;display:inline-flex;align-items:center;gap:6px;
+font:600 10.5px/1 Manrope;letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;border-radius:100px;
+background:#06060af2;border:1px solid var(--p);color:var(--p);backdrop-filter:blur(10px);
+box-shadow:0 0 20px #ff00804d,inset 0 0 12px #ff00801a;pointer-events:none}
+.demo-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--p);box-shadow:0 0 8px var(--p)}
+@media(max-width:520px){.demo-badge{font-size:9px;padding:6px 9px;bottom:12px;left:12px}}
+
+/* ---------- прелоадер ---------- */
+.pre{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .4s var(--e),visibility .4s}
+.pre.d{opacity:0;visibility:hidden}
+.pre .w{font:700 clamp(18px,3vw,28px)/1 Unbounded;letter-spacing:.2em;display:flex;overflow:hidden}
+.pre .w span{display:inline-block;transform:translateY(110%);animation:up .6s var(--e) forwards}
+.pre .w span:nth-child(2){animation-delay:.04s}.pre .w span:nth-child(3){animation-delay:.08s}.pre .w span:nth-child(4){animation-delay:.12s}.pre .w span:nth-child(5){animation-delay:.16s}
+@keyframes up{to{transform:translateY(0)}}
+.pre .b{width:min(180px,50vw);height:1.5px;background:var(--l);overflow:hidden;border-radius:2px;position:relative}
+.pre .b::after{content:"";position:absolute;inset:0;width:0;background:linear-gradient(90deg,var(--c),var(--p));animation:ld 1.2s var(--e) forwards;box-shadow:0 0 8px var(--c)}
+@keyframes ld{to{width:100%}}
+.pre .c{font:600 10px/1 Manrope;letter-spacing:.3em;color:var(--m2)}
+
+/* ---------- навигация ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:14px clamp(16px,3vw,40px);display:flex;align-items:center;justify-content:space-between;gap:14px;
+background:linear-gradient(180deg,#06060ad9,#06060ac9);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+border-bottom:1px solid var(--l);transition:padding .3s var(--e)}
+.nav.s{padding:10px clamp(16px,3vw,40px)}
+.brand{font:700 16px/1 Unbounded;letter-spacing:.08em;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .d{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 14px var(--c)}
+.links{display:flex;gap:clamp(18px,2.5vw,28px);align-items:center}
+.links a{font-size:13.5px;color:var(--m);position:relative;transition:color .25s;white-space:nowrap}
+.links a::after{content:"";position:absolute;left:0;bottom:-5px;height:1px;width:0;background:linear-gradient(90deg,var(--c),var(--p));transition:width .3s var(--e)}
+.links a:hover,.links a.on{color:var(--t)}
+.links a:hover::after,.links a.on::after{width:100%}
+.cn{font:600 11.5px/1 Manrope;letter-spacing:.1em;text-transform:uppercase;padding:10px 16px;border-radius:100px;color:#000;background:linear-gradient(120deg,var(--c),var(--li));box-shadow:0 0 20px #00eaff4d;transition:transform .25s var(--e),box-shadow .25s;white-space:nowrap}
+.cn:hover{transform:translateY(-2px);box-shadow:0 0 32px #00eaff99}
+.burger{display:none;width:36px;height:36px;border:1px solid var(--l2);border-radius:10px;align-items:center;justify-content:center;flex-direction:column;gap:4px;transition:border-color .25s}
+.burger span{display:block;width:14px;height:1.5px;background:var(--t);transition:transform .25s var(--e),opacity .25s}
+.burger:hover{border-color:var(--c)}
+@media(max-width:820px){.links,.cn{display:none}.burger{display:flex}}
+
+.mm{position:fixed;inset:0;z-index:950;background:#06060af5;backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;visibility:hidden;transition:opacity .35s var(--e),visibility .35s}
+.mm.on{opacity:1;visibility:visible}
+.mm a{font:500 clamp(20px,4vw,28px)/1.4 Unbounded;color:var(--m);transition:color .25s,transform .25s var(--e)}
+.mm a:hover{color:var(--c);transform:translateX(6px)}
+.mm .x{position:absolute;top:18px;right:18px;width:40px;height:40px;border:1px solid var(--l2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px}
+
+/* ---------- общее ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(16px,3vw,40px)}
+.hd{max-width:620px;margin-bottom:clamp(28px,4vw,44px)}
+.tag{display:inline-flex;align-items:center;gap:8px;font:600 10.5px/1 Manrope;letter-spacing:.22em;text-transform:uppercase;color:var(--c);margin-bottom:14px}
+.tag::before{content:"";width:20px;height:1px;background:linear-gradient(90deg,var(--c),transparent)}
+.hd h2{font:600 clamp(22px,3vw,34px)/1.15 Unbounded;letter-spacing:-.02em;margin-bottom:10px}
+.hd p{color:var(--m);font-size:15px;max-width:520px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--e),transform .7s var(--e)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(110px,14vw,150px) clamp(16px,3vw,40px) clamp(48px,7vw,72px);overflow:hidden}
+.hi{max-width:1180px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,64px);align-items:center}
+@media(max-width:900px){.hi{grid-template-columns:1fr;gap:40px}}
+.eb{display:inline-flex;align-items:center;gap:8px;font:600 10.5px/1 Manrope;letter-spacing:.22em;text-transform:uppercase;color:var(--c);margin-bottom:20px}
+.eb::before{content:"";width:22px;height:1px;background:linear-gradient(90deg,var(--c),transparent)}
+.hero h1{font:700 clamp(30px,5.2vw,62px)/1.02 Unbounded;letter-spacing:-.025em;margin-bottom:22px}
+.hero h1 .r{display:block;overflow:hidden}
+.hero h1 .r span{display:block;transform:translateY(110%);animation:up .9s var(--e) forwards}
+.hero h1 .r:nth-child(2) span{animation-delay:.12s}
+.hero h1 .r:nth-child(3) span{animation-delay:.24s}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--c) 10%,var(--li) 50%,var(--p) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:480px;font-size:15px;color:var(--m);margin-bottom:28px}
+.sub b{color:var(--t);font-weight:600}
+.ac{display:flex;gap:10px;flex-wrap:wrap}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:100px;font:600 13px/1 Manrope;letter-spacing:.02em;transition:transform .25s var(--e),box-shadow .25s,background .25s,color .25s,border-color .25s}
+.bp{background:linear-gradient(120deg,var(--c),var(--li));color:#000;box-shadow:0 0 24px #00eaff4d}
+.bp:hover{box-shadow:0 0 36px #00eaff99;transform:translateY(-2px)}
+.bg2{border:1px solid var(--l2);color:var(--t);background:#ffffff05}
+.bg2:hover{border-color:var(--c);color:var(--c);box-shadow:0 0 20px #00eaff33}
+.btn .ar{transition:transform .25s var(--e)}
+.btn:hover .ar{transform:translateX(3px)}
+
+/* hero: аудио-превью */
+.hp-card{position:relative;background:linear-gradient(160deg,#ffffff0a,#ffffff03);border:1px solid var(--l2);border-radius:16px;padding:18px;backdrop-filter:blur(10px);overflow:hidden}
+.hp-card::before{content:"";position:absolute;top:-60%;right:-30%;width:70%;height:120%;background:radial-gradient(circle,#00eaff24,transparent 60%);pointer-events:none}
+.hp-head{position:relative;display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.hp-head .k{font:600 10px/1 Manrope;letter-spacing:.22em;text-transform:uppercase;color:var(--m2)}
+.hp-head .t{font:500 13px/1 Unbounded;letter-spacing:-.01em}
+.hp-play{position:relative;display:flex;align-items:center;gap:14px}
+.hp-btn{width:44px;height:44px;border-radius:50%;background:linear-gradient(120deg,var(--c),var(--li));color:#000;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 24px #00eaff66;transition:transform .25s var(--e),box-shadow .25s}
+.hp-btn:hover{transform:scale(1.06);box-shadow:0 0 36px #00eaffcc}
+.hp-btn svg{width:16px;height:16px}
+.hp-wave{flex:1;display:flex;align-items:center;gap:2px;height:36px}
+.hp-wave i{flex:1;background:linear-gradient(180deg,var(--c),var(--vi));border-radius:2px;height:30%;opacity:.55;transition:opacity .3s}
+.hp-wave.playing i{animation:wv .9s ease-in-out infinite;opacity:1}
+.hp-wave.playing i:nth-child(2n){animation-duration:1.15s}
+.hp-wave.playing i:nth-child(3n){animation-duration:.75s}
+.hp-wave.playing i:nth-child(5n){animation-duration:1.4s}
+@keyframes wv{0%,100%{height:20%}50%{height:100%}}
+.hp-time{font:500 12px/1 Manrope;color:var(--m);letter-spacing:.05em;flex-shrink:0;font-variant-numeric:tabular-nums}
+.hp-foot{position:relative;margin-top:14px;padding-top:12px;border-top:1px solid var(--l);display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:11.5px;color:var(--m2)}
+.hp-foot .demo{color:var(--p);font-weight:600;letter-spacing:.08em}
+
+/* ---------- бегущая строка ---------- */
+.mq{border-top:1px solid var(--l);border-bottom:1px solid var(--l);padding:16px 0;overflow:hidden;white-space:nowrap;background:linear-gradient(90deg,#00eaff08,#ff00800a,#8b5cf608)}
+.mq-t{display:inline-flex;gap:40px;animation:sx 40s linear infinite}
+.mq:hover .mq-t{animation-play-state:paused}
+.mq span{font:500 clamp(13px,1.6vw,16px)/1 Unbounded;color:var(--m);display:inline-flex;align-items:center;gap:40px;letter-spacing:.02em}
+.mq span::after{content:"";width:5px;height:5px;border-radius:50%;background:linear-gradient(120deg,var(--c),var(--p));flex-shrink:0}
+@keyframes sx{to{transform:translateX(-50%)}}
+
+/* ---------- клиенты ---------- */
+.clients{padding:clamp(40px,6vw,64px) 0;border-bottom:1px solid var(--l)}
+.clients .lead{text-align:center;font:600 10.5px/1 Manrope;letter-spacing:.24em;text-transform:uppercase;color:var(--m2);margin-bottom:24px}
+.cl-row{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:center;padding:0 clamp(16px,3vw,40px)}
+.cl{font:500 clamp(14px,1.4vw,17px)/1 Unbounded;color:var(--m);letter-spacing:.04em;opacity:.5;transition:opacity .3s,color .3s,transform .3s var(--e);cursor:default}
+.cl:hover{opacity:1;color:var(--t);transform:translateY(-2px)}
+
+/* ---------- услуги ---------- */
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:900px){.sgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.sgrid{grid-template-columns:1fr}}
+.sv{position:relative;background:linear-gradient(160deg,#ffffff08,#ffffff02);border:1px solid var(--l);border-radius:var(--r);padding:20px 18px;transition:transform .4s var(--e),border-color .3s,box-shadow .4s;overflow:hidden;min-height:170px;display:flex;flex-direction:column}
+.sv:hover{transform:translateY(-4px);border-color:#00eaff40;box-shadow:0 16px 40px #00eaff1a}
+.sv .ic{width:38px;height:38px;border:1px solid var(--l2);border-radius:11px;display:flex;align-items:center;justify-content:center;color:var(--c);margin-bottom:auto;transition:border-color .3s,transform .35s var(--e),box-shadow .3s}
+.sv:hover .ic{border-color:var(--c);transform:translateY(-3px);box-shadow:0 0 20px #00eaff66}
+.sv h3{font:600 15px/1.25 Unbounded;letter-spacing:-.01em;margin:20px 0 6px}
+.sv p{color:var(--m);font-size:13px;line-height:1.55}
+.sv .n{position:absolute;top:18px;right:18px;font:500 11px/1 Unbounded;color:var(--m2);letter-spacing:.1em}
+
+/* ---------- плеер ---------- */
+.tracks{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,56px);align-items:start}
+@media(max-width:900px){.tracks{grid-template-columns:1fr}}
+.pl{background:linear-gradient(160deg,#13131f,#0b0b14);border:1px solid var(--l2);border-radius:18px;padding:clamp(20px,3vw,28px);position:relative;overflow:hidden}
+.pl::before{content:"";position:absolute;top:-40%;right:-20%;width:60%;height:80%;background:radial-gradient(circle,#00eaff1a,transparent 70%);pointer-events:none}
+.pl-head{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.pl-head .k{font:600 10px/1 Manrope;letter-spacing:.22em;text-transform:uppercase;color:var(--m2)}
+.pl-head .now{font:500 12px/1 Unbounded;color:var(--c);letter-spacing:.02em}
+.pl-vis{position:relative;display:flex;align-items:center;gap:2px;height:80px;margin-bottom:20px;border-radius:12px;background:#06060a88;padding:12px;overflow:hidden}
+.pl-vis i{flex:1;background:linear-gradient(180deg,var(--c),var(--vi) 50%,var(--p));border-radius:2px;height:20%;opacity:.4;transition:opacity .3s}
+.pl-vis.playing i{animation:wv 1s ease-in-out infinite;opacity:1}
+.pl-vis.playing i:nth-child(2n){animation-duration:1.2s}
+.pl-vis.playing i:nth-child(3n){animation-duration:.8s}
+.pl-vis.playing i:nth-child(5n){animation-duration:1.5s}
+.pl-vis.playing i:nth-child(7n){animation-duration:1.1s}
+.pl-ctrl{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.pl-btn{width:48px;height:48px;border-radius:50%;background:linear-gradient(120deg,var(--c),var(--li));color:#000;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 24px #00eaff66;transition:transform .25s var(--e),box-shadow .25s}
+.pl-btn:hover{transform:scale(1.05);box-shadow:0 0 36px #00eaffcc}
+.pl-btn svg{width:16px;height:16px}
+.pl-prog{flex:1;height:4px;border-radius:100px;background:var(--l);position:relative;cursor:pointer;overflow:hidden}
+.pl-prog .bar{position:absolute;left:0;top:0;bottom:0;width:0%;background:linear-gradient(90deg,var(--c),var(--li));border-radius:100px;transition:width .15s linear;box-shadow:0 0 10px var(--c)}
+.pl-time{font:500 12px/1 Manrope;color:var(--m);font-variant-numeric:tabular-nums;letter-spacing:.05em;white-space:nowrap}
+.pl-list{position:relative;display:flex;flex-direction:column;gap:4px}
+.pl-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;border:1px solid transparent;transition:background .25s,border-color .25s;cursor:pointer}
+.pl-item:hover{background:#ffffff08}
+.pl-item.on{background:linear-gradient(120deg,#00eaff14,#b4ff000a);border-color:#00eaff40}
+.pl-item .n{font:500 11px/1 Unbounded;color:var(--m2);letter-spacing:.08em;flex-shrink:0;width:20px}
+.pl-item.on .n{color:var(--c)}
+.pl-item .info{flex:1;min-width:0}
+.pl-item .info .name{font:600 13.5px/1.2 Manrope;color:var(--t);margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pl-item .info .sub{font-size:11.5px;color:var(--m2);letter-spacing:.04em}
+.pl-item .dur{font:500 12px/1 Manrope;color:var(--m);font-variant-numeric:tabular-nums;letter-spacing:.05em;flex-shrink:0}
+.pl-item .play{width:26px;height:26px;border-radius:50%;border:1px solid var(--l2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .25s,background .25s,color .25s}
+.pl-item .play svg{width:9px;height:9px}
+.pl-item:hover .play{border-color:var(--c);color:var(--c)}
+.pl-item.on .play{background:var(--c);border-color:var(--c);color:#000}
+.pl-note{position:relative;margin-top:16px;padding-top:14px;border-top:1px solid var(--l);font-size:11.5px;color:var(--m2);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pl-note .demo{color:var(--p);font-weight:600;letter-spacing:.08em}
+
+/* ---------- проекты ---------- */
+.proj{display:grid;grid-template-columns:34px 1fr auto;gap:22px;align-items:center;padding:24px 0;border-top:1px solid var(--l);cursor:pointer;transition:padding .4s var(--e);position:relative;overflow:hidden}
+.proj:last-child{border-bottom:1px solid var(--l)}
+.proj::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#00eaff1a,#ff008014 50%,transparent);opacity:0;transition:opacity .4s}
+.proj:hover{padding-left:16px;padding-right:16px}
+.proj:hover::before{opacity:1}
+.proj>*{position:relative;z-index:1}
+.proj .i{font:500 12px/1 Unbounded;color:var(--m2);letter-spacing:.1em}
+.proj h3{font:600 clamp(15px,1.7vw,20px)/1.2 Unbounded;letter-spacing:-.01em;transition:transform .4s var(--e)}
+.proj:hover h3{transform:translateX(4px)}
+.proj .m{display:flex;align-items:center;gap:10px;color:var(--m);font:600 11px/1 Manrope;letter-spacing:.06em;text-transform:uppercase}
+.proj .m .t{padding:5px 10px;border:1px solid var(--l);border-radius:100px;transition:border-color .3s,color .3s,background .3s}
+.proj:hover .m .t{border-color:var(--c);color:var(--c);background:#00eaff14}
+.proj .go{width:38px;height:38px;border-radius:50%;border:1px solid var(--l2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .3s,border-color .3s,transform .4s var(--e),color .3s;flex-shrink:0}
+.proj:hover .go{background:linear-gradient(120deg,var(--c),var(--li));border-color:transparent;color:#000;transform:rotate(-45deg)}
+@media(max-width:680px){.proj{grid-template-columns:1fr;gap:10px}.proj .i{display:none}.proj .m{flex-wrap:wrap;gap:6px}.proj .go{position:absolute;top:26px;right:0;width:34px;height:34px}}
+
+/* ---------- цифры ---------- */
+.stats{border-top:1px solid var(--l);border-bottom:1px solid var(--l);background:linear-gradient(90deg,#00eaff06,#ff008006,#8b5cf606)}
+.st-i{max-width:1180px;margin:0 auto;padding:clamp(32px,5vw,52px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,32px)}
+@media(max-width:680px){.st-i{grid-template-columns:repeat(2,1fr)}}
+.st .n{font:700 clamp(26px,4vw,44px)/1 Unbounded;letter-spacing:-.02em;background:linear-gradient(160deg,#fff 30%,var(--c) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.st .l{color:var(--m);font-size:12.5px;margin-top:8px;line-height:1.4}
+.st .l .demo{color:var(--p);font-weight:600}
+
+/* ---------- отзывы ---------- */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.tg{grid-template-columns:1fr}}
+.tc{position:relative;background:linear-gradient(160deg,#ffffff08,#ffffff02);border:1px solid var(--l);border-radius:var(--r);padding:22px 20px;transition:transform .4s var(--e),border-color .3s,box-shadow .4s}
+.tc:hover{transform:translateY(-4px);border-color:#00eaff33;box-shadow:0 16px 40px #00eaff14}
+.tc .q{font:700 32px/1 Unbounded;color:var(--c);opacity:.35;margin-bottom:4px}
+.tc p{color:var(--t);font-size:14px;line-height:1.6;margin-bottom:18px}
+.tc .who{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--l)}
+.tc .av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 12px/1 Unbounded;color:#fff;flex-shrink:0;background:linear-gradient(120deg,var(--c),var(--vi))}
+.tc:nth-child(2) .av{background:linear-gradient(120deg,var(--p),var(--li))}
+.tc:nth-child(3) .av{background:linear-gradient(120deg,var(--li),var(--c))}
+.tc .who .n{font:600 13.5px/1.2 Manrope;color:var(--t);margin-bottom:3px}
+.tc .who .r{font-size:11.5px;color:var(--m2);letter-spacing:.04em}
+.tc .who .r .demo{color:var(--p);font-weight:600}
+
+/* ---------- CTA ---------- */
+.cta{text-align:center;padding:clamp(72px,10vw,120px) clamp(16px,3vw,40px);position:relative;overflow:hidden;border-top:1px solid var(--l)}
+.halo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(700px,120vw);height:min(700px,120vw);background:radial-gradient(circle,#00eaff2e,#ff00801a 40%,transparent 65%);pointer-events:none}
+.cta h2{position:relative;font:700 clamp(26px,4.6vw,52px)/1.05 Unbounded;letter-spacing:-.025em;margin-bottom:18px}
+.cta h2 em{font-style:normal;background:linear-gradient(100deg,var(--c),var(--li) 50%,var(--p));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cta p{position:relative;color:var(--m);max-width:440px;margin:0 auto 28px;font-size:15px}
+.cta .btn{position:relative}
+.cta .micro{position:relative;display:block;margin-top:14px;font-size:11.5px;color:var(--m2);letter-spacing:.05em}
+
+/* ---------- футер ---------- */
+.ft{border-top:1px solid var(--l);padding:clamp(32px,4vw,44px) clamp(16px,3vw,40px) 24px;background:#06060a99}
+.fi{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.ft .brand{margin-bottom:10px}
+.ft .ab{color:var(--m);font-size:13px;max-width:280px;line-height:1.55}
+.fc h4{font:600 10.5px/1 Manrope;letter-spacing:.2em;text-transform:uppercase;color:var(--m2);margin-bottom:12px}
+.fc a{display:block;color:var(--t);font-size:13.5px;margin-bottom:7px;transition:color .25s,transform .25s}
+.fc a:hover{color:var(--c);transform:translateX(3px)}
+.fb{max-width:1180px;margin:clamp(24px,3vw,32px) auto 0;padding-top:16px;border-top:1px solid var(--l);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--m2);font-size:11.5px;letter-spacing:.04em}
+.fb .demo{color:var(--p);font-weight:600}
+@media(max-width:680px){.fi{flex-direction:column;gap:20px}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body class="lock">
+
+<div class="bg"></div>
+<div class="bg-grid"></div>
+
+<div class="demo-badge"><span class="dot"></span> Демо · тестовый контент</div>
+
+<div class="pre" id="pre">
+  <div class="w"><span>P</span><span>U</span><span>L</span><span>S</span><span>E</span></div>
+  <div class="b"></div>
+  <div class="c" id="cnt">00</div>
+</div>
+
+<header class="nav" id="nav">
+  <a href="index.html" class="brand"><span class="d"></span>PULSE</a>
+  <nav class="links">
+    <a href="index.html" class="on">Главная</a>
+    <a href="projects.html">Проекты</a>
+    <a href="about.html">О студии</a>
+  </nav>
+  <a href="about.html#contact" class="cn">Связаться</a>
+  <button class="burger" id="burger" aria-label="Меню"><span></span><span></span></button>
+</header>
+
+<div class="mm" id="mm">
+  <button class="x" id="mmx" aria-label="Закрыть">✕</button>
+  <a href="index.html">Главная</a>
+  <a href="projects.html">Проекты</a>
+  <a href="about.html">О студии</a>
+  <a href="about.html#contact">Связаться</a>
+</div>
+
+<main>
+
+<section class="hero">
+  <div class="hi">
+    <div>
+      <span class="eb">Студия звука и движения · с 2019</span>
+      <h1>
+        <span class="r"><span>Мы делаем</span></span>
+        <span class="r"><span><em>слышимым</em> то,</span></span>
+        <span class="r"><span>что вы видите.</span></span>
+      </h1>
+      <p class="sub">PULSE — независимая студия аудиовизуального дизайна. Motion, звук и айдентика <b>как одно целое</b>, а не три разных подрядчика.</p>
+      <div class="ac">
+        <a href="projects.html" class="btn bp">Смотреть проекты <span class="ar">→</span></a>
+        <a href="#listen" class="btn bg2">▶ Послушать демо</a>
+      </div>
+    </div>
+
+    <div class="hp">
+      <div class="hp-card">
+        <div class="hp-head">
+          <span class="k">Сейчас в эфире</span>
+          <span class="t" id="hpTitle">Sound Logo · Nordwave</span>
+        </div>
+        <div class="hp-play">
+          <button class="hp-btn" id="hpBtn" aria-label="Играть">
+            <svg id="hpIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="hp-wave" id="hpWave"></div>
+          <div class="hp-time" id="hpTime">0:00 / 0:04</div>
+        </div>
+        <div class="hp-foot">
+          <span>Фрагмент демо-трека</span>
+          <span class="demo">ДЕМО</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mq" aria-hidden="true">
+  <div class="mq-t">
+    <span>Motion Design</span><span>Sound Branding</span><span>Art Direction</span><span>3D &amp; CGI</span><span>Айдентика</span>
+    <span>Motion Design</span><span>Sound Branding</span><span>Art Direction</span><span>3D &amp; CGI</span><span>Айдентика</span>
+  </div>
+</div>
+
+<section class="clients">
+  <div class="lead">Нам доверяют (демо-логотипы)</div>
+  <div class="cl-row">
+    <span class="cl">NORDWAVE</span>
+    <span class="cl">ЛИНИЯ</span>
+    <span class="cl">ORBITA</span>
+    <span class="cl">ТЁПЛЫЙ ЦЕХ</span>
+    <span class="cl">СИГНАЛ</span>
+    <span class="cl">ВОЛНА</span>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="hd rv">
+      <span class="tag">Что мы делаем</span>
+      <h2>Четыре направления, которые работают как одно</h2>
+      <p>Можно взять по отдельности. Можно собрать полный аудиовизуальный язык бренда.</p>
+    </div>
+    <div class="sgrid">
+      <div class="sv rv"><span class="n">01</span><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h2l2-6 3 14 3-11 2 6 2-4h4"/></svg></div><h3>Motion Design</h3><p>Анимация интерфейсов, ролики, титры. Всё, что двигается и держит внимание.</p></div>
+      <div class="sv rv"><span class="n">02</span><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></div><h3>Sound Branding</h3><p>Звуковые логотипы, аудиоайдентика, саунд-дизайн интерфейсов и видео.</p></div>
+      <div class="sv rv"><span class="n">03</span><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16"/></svg></div><h3>Art Direction</h3><p>Визуальная стратегия: от мудборда до финального гайдлайна бренда.</p></div>
+      <div class="sv rv"><span class="n">04</span><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>3D &amp; CGI</h3><p>Продуктовые рендеры, абстрактные сцены, интеграции в реальные съёмки.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="listen" style="background:#0d0d1499;border-top:1px solid var(--l);border-bottom:1px solid var(--l)">
+  <div class="wrap">
+    <div class="tracks">
+      <div class="rv">
+        <span class="tag">Послушать</span>
+        <h2 style="font:600 clamp(22px,3vw,34px)/1.15 Unbounded;letter-spacing:-.02em;margin-bottom:12px">Как звучит<br>наш подход</h2>
+        <p style="color:var(--m);font-size:15px;max-width:420px;margin-bottom:22px">Четыре демо-трека — по одному на каждое направление. Полные версии и реальные кейсы показываем на встрече.</p>
+
+        <div class="pl" id="player">
+          <div class="pl-head">
+            <span class="k">Сейчас играет</span>
+            <span class="now" id="nowName">Sound Logo · Nordwave</span>
+          </div>
+          <div class="pl-vis" id="vis"></div>
+          <div class="pl-ctrl">
+            <button class="pl-btn" id="playBtn" aria-label="Играть">
+              <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="pl-prog" id="prog"><div class="bar" id="bar"></div></div>
+            <span class="pl-time" id="time">0:00 / 0:04</span>
+          </div>
+          <div class="pl-note">
+            <span>Аудио в демо-режиме — визуализация</span>
+            <span class="demo">ТЕСТ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv">
+        <div style="font:600 10px/1 Manrope;letter-spacing:.22em;text-transform:uppercase;color:var(--m2);margin-bottom:14px">Демо-плейлист</div>
+        <div class="pl-list" id="list"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="hd rv">
+      <span class="tag">Избранное</span>
+      <h2>Три проекта, которые объясняют нас</h2>
+      <p>Полное портфолио — на отдельной странице. Здесь — то, чем дышим.</p>
+    </div>
+    <div>
+      <article class="proj rv">
+        <span class="i">01</span>
+        <h3>NORDWAVE — звуковой логотип и motion-система для финтеха</h3>
+        <div class="m"><span class="t">Sound</span><span class="t">Motion</span><span>2024</span><span class="go">→</span></div>
+      </article>
+      <article class="proj rv">
+        <span class="i">02</span>
+        <h3>ТЁПЛЫЙ ЦЕХ — айдентика и видео для ремесленной кофейни</h3>
+        <div class="m"><span class="t">Айдентика</span><span class="t">Art</span><span>2023</span><span class="go">→</span></div>
+      </article>
+      <article class="proj rv">
+        <span class="i">03</span>
+        <h3>ORBITA — 3D-кампания для космического медиапроекта</h3>
+        <div class="m"><span class="t">3D</span><span class="t">Motion</span><span>2023</span><span class="go">→</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="st-i">
+    <div class="st rv"><div class="n" data-c="87">0</div><div class="l">проектов сдано с 2019 <span class="demo">· демо</span></div></div>
+    <div class="st rv"><div class="n" data-c="24">0</div><div class="l">бренда доверили нам звук <span class="demo">· демо</span></div></div>
+    <div class="st rv"><div class="n" data-c="9">0</div><div class="l">стран, где живут клиенты <span class="demo">· демо</span></div></div>
+    <div class="st rv"><div class="n" data-c="6">0</div><div class="l">наград и шорт-листов <span class="demo">· демо</span></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="hd rv">
+      <span class="tag">Отзывы · тестовые</span>
+      <h2>Что говорят клиенты</h2>
+      <p>Здесь — выдуманные отзывы для демонстрации визуала. Реальные покажем на встрече.</p>
+    </div>
+    <div class="tg">
+      <div class="tc rv">
+        <div class="q">"</div>
+        <p>Звук перестал быть «последним пунктом в смете». Впервые бренд зазвучал как бренд, а не как заготовка. Поддержка отметила падение «а что случилось?» в чатах на треть.</p>
+        <div class="who"><div class="av">АК</div><div><div class="n">Алексей К.</div><div class="r">CPO · NORDWAVE <span class="demo">· демо</span></div></div></div>
+      </div>
+      <div class="tc rv">
+        <div class="q">"</div>
+        <p>Работали спринтами, показывали черновики, а не только финал. Мы видели процесс и понимали, за что платим. Такого у нас не было ни с одним подрядчиком.</p>
+        <div class="who"><div class="av">МЛ</div><div><div class="n">Марина Л.</div><div class="r">CMO · ЛИНИЯ Банк <span class="demo">· демо</span></div></div></div>
+      </div>
+      <div class="tc rv">
+        <div class="q">"</div>
+        <p>Айдентика работает и в печати, и в лайв-визуале. Один язык, два состояния. Через полгода 68% клиентов смогли напеть звук бренда по памяти.</p>
+        <div class="who"><div class="av">ДС</div><div><div class="n">Денис С.</div><div class="r">Founder · ПУЛЬС FEST <span class="demo">· демо</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="halo"></div>
+  <h2 class="rv">Есть идея? <em>Давайте её услышим.</em></h2>
+  <p class="rv">Ответим в течение рабочего дня и предложим 2–3 варианта решения.</p>
+  <a href="about.html#contact" class="btn bp rv">Начать разговор <span class="ar">→</span></a>
+  <span class="micro rv">Без обязательств · NDA по запросу</span>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="fi">
+    <div>
+      <a href="index.html" class="brand"><span class="d"></span>PULSE</a>
+      <p class="ab">Независимая студия аудиовизуального дизайна. Делаем бренды, которые звучат и двигаются как одно целое.</p>
+    </div>
+    <div class="fc"><h4>Навигация</h4><a href="index.html">Главная</a><a href="projects.html">Проекты</a><a href="about.html">О студии</a></div>
+    <div class="fc"><h4>Связь</h4><a href="mailto:hello@pulse.studio">hello@pulse.studio</a><a href="#">Telegram</a><a href="#">Behance</a></div>
+  </div>
+  <div class="fb">
+    <span>© 2025 PULSE Studio</span>
+    <span class="demo">ДЕМО-ВЕРСИЯ · весь контент тестовый</span>
+  </div>
+</footer>
+
+<script>
+(()=>{
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* прелоадер */
+const p=document.getElementById('pre'),c=document.getElementById('cnt');
+let n=0;const t=setInterval(()=>{n+=Math.floor(Math.random()*9)+3;if(n>=100){n=100;clearInterval(t);end()}c.textContent=String(n).padStart(2,'0')},40);
+function end(){setTimeout(()=>{p.classList.add('d');document.body.classList.remove('lock')},rm?0:260)}
+setTimeout(()=>{if(!p.classList.contains('d'))end()},2500);
+
+/* nav */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('s',scrollY>40)},{passive:true});
+
+/* burger */
+const burger=document.getElementById('burger'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');
+burger.addEventListener('click',()=>{mm.classList.add('on');document.body.classList.add('lock')});
+mmx.addEventListener('click',()=>{mm.classList.remove('on');document.body.classList.remove('lock')});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('on');document.body.classList.remove('lock')}));
+
+/* reveal */
+const rvs=document.querySelectorAll('.rv');
+if('IntersectionObserver'in window&&!rm){
+const io=new IntersectionObserver(es=>{for(const e of es){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+rvs.forEach(e=>io.observe(e));
+}else{rvs.forEach(e=>e.classList.add('in'))}
+
+/* счётчики */
+const ns=document.querySelectorAll('[data-c]');
+if(ns.length&&'IntersectionObserver'in window&&!rm){
+const io=new IntersectionObserver(es=>{for(const e of es){if(!e.isIntersecting)continue;
+const el=e.target,tg=+el.dataset.c,st=Math.max(1,Math.round(tg/50));
+let v=0;const id=setInterval(()=>{v+=st;if(v>=tg){v=tg;clearInterval(id)}el.textContent=v},22);
+io.unobserve(el)}},{threshold:.5});
+ns.forEach(e=>io.observe(e));
+}else{ns.forEach(e=>e.textContent=e.dataset.c)}
+
+/* hero wave */
+const hpWave=document.getElementById('hpWave');
+for(let i=0;i<28;i++){const b=document.createElement('i');b.style.height=(20+Math.random()*60)+'%';hpWave.appendChild(b)}
+
+/* плеер */
+const vis=document.getElementById('vis');
+for(let i=0;i<48;i++){const b=document.createElement('i');b.style.height=(15+Math.random()*55)+'%';vis.appendChild(b)}
+
+const tracks=[
+  {n:'Sound Logo · Nordwave',s:'Звуковой логотип',d:4},
+  {n:'UI Sounds Pack',s:'12 сигналов интерфейса',d:12},
+  {n:'Ambient Loop',s:'Фоновая петля',d:24},
+  {n:'Podcast Stinger',s:'Джингл · переход',d:8}
+];
+
+const list=document.getElementById('list');
+tracks.forEach((tr,i)=>{
+  const el=document.createElement('div');
+  el.className='pl-item'+(i===0?' on':'');
+  el.dataset.i=i;
+  el.innerHTML='<span class="n">'+String(i+1).padStart(2,'0')+'</span><span class="info"><span class="name">'+tr.n+'</span><span class="sub">'+tr.s+'</span></span><span class="dur">0:'+String(tr.d).padStart(2,'0')+'</span><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
+  el.addEventListener('click',()=>selectTrack(i));
+  list.appendChild(el);
+});
+
+let cur=0,playing=false,prog=0,raf=null,last=0;
+const playBtn=document.getElementById('playBtn'),playIcon=document.getElementById('playIcon');
+const bar=document.getElementById('bar'),time=document.getElementById('time');
+const nowName=document.getElementById('nowName');
+const hpIcon=document.getElementById('hpIcon'),hpTitle=document.getElementById('hpTitle'),hpTime=document.getElementById('hpTime'),hpBtn=document.getElementById('hpBtn');
+
+function fmt(s){return '0:'+String(Math.floor(s)).padStart(2,'0')}
+function render(){
+  const tr=tracks[cur];
+  time.textContent=fmt(prog)+' / '+fmt(tr.d);
+  hpTime.textContent=fmt(prog)+' / '+fmt(tr.d);
+  bar.style.width=((prog/tr.d)*100)+'%';
+}
+function selectTrack(i){
+  cur=i;prog=0;
+  list.querySelectorAll('.pl-item').forEach((el,j)=>el.classList.toggle('on',j===i));
+  nowName.textContent=tracks[i].n;
+  hpTitle.textContent=tracks[i].n;
+  render();
+}
+function loop(){
+  cancelAnimationFrame(raf);
+  last=performance.now();
+  const step=(now)=>{
+    if(!playing)return;
+    const dt=(now-last)/1000;last=now;
+    prog+=dt;
+    if(prog>=tracks[cur].d){prog=0;cur=(cur+1)%tracks.length;selectTrack(cur)}
+    render();
+    raf=requestAnimationFrame(step);
+  };
+  raf=requestAnimationFrame(step);
+}
+function toggle(){
+  playing=!playing;
+  playIcon.innerHTML=playing?'<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>':'<path d="M8 5v14l11-7z"/>';
+  hpIcon.innerHTML=playing?'<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>':'<path d="M8 5v14l11-7z"/>';
+  vis.classList.toggle('playing',playing);
+  hpWave.classList.toggle('playing',playing);
+  if(playing){loop()}else{cancelAnimationFrame(raf)}
+}
+playBtn.addEventListener('click',toggle);
+hpBtn.addEventListener('click',toggle);
+
+document.getElementById('prog').addEventListener('click',e=>{
+  const r=e.currentTarget.getBoundingClientRect();
+  const x=(e.clientX-r.left)/r.width;
+  prog=x*tracks[cur].d;
+  render();
+},{passive:true});
+
+render();
+
+})();
+</script>
+</body>
+</html>

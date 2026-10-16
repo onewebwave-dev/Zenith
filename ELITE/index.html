@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МОНОЛИТ — Строительная компания полного цикла</title>
+<meta name="description" content="МОНОЛИТ — строительство жилых, коммерческих и промышленных объектов полного цикла. 20 лет опыта, 340 реализованных проектов.">
+<meta name="keywords" content="строительная компания, монолитное строительство, генподряд, жилые комплексы, коммерческая недвижимость">
+<meta property="og:title" content="МОНОЛИТ — Строительная компания полного цикла">
+<meta property="og:description" content="Проектируем и строим объекты, которые переживут время.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230f0f0f'/%3E%3Crect x='8' y='8' width='84' height='84' fill='none' stroke='%23c9a961' stroke-width='3'/%3E%3Ctext x='50' y='74' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='500' font-size='64' fill='%23c9a961'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'Inter',sans-serif;background:#0f0f0f;color:#f8f6f2;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:none;color:inherit;cursor:pointer}
+ul{list-style:none}
+input,textarea,select{font:inherit;color:inherit}
+::selection{background:#c9a961;color:#0f0f0f}
+
+:root{
+  --bg:#0f0f0f;--bg-2:#141414;--bg-3:#1a1a1a;
+  --text:#f8f6f2;--text-dim:rgba(248,246,242,.72);--text-soft:rgba(248,246,242,.5);
+  --accent:#c9a961;--accent-2:#e0be77;
+  --line:rgba(248,246,242,.12);--border:rgba(248,246,242,.08);
+  --container:1280px;
+  --font-d:'Cormorant Garamond',serif;
+  --font-b:'Inter',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+.container{max-width:var(--container);margin:0 auto;padding:0 40px;width:100%}
+.section{padding:110px 0;position:relative}
+.section--dark{background:var(--bg-2)}
+
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform-origin:0 50%;transform:scaleX(0);z-index:1000;pointer-events:none}
+
+.h2{font-family:var(--font-d);font-weight:400;font-size:clamp(34px,4.6vw,72px);line-height:1.05;letter-spacing:-.02em;margin-bottom:22px;color:var(--text)}
+.h2--sm{font-size:clamp(28px,3.6vw,52px)}
+.h2--xl{font-size:clamp(38px,5.6vw,92px)}
+.h2 em{font-style:italic;color:var(--accent);font-weight:300}
+.lead{font-size:clamp(15px,1.15vw,18px);color:var(--text-dim);max-width:640px;line-height:1.7}
+.lead--center{margin-left:auto;margin-right:auto;text-align:center}
+.section-head{margin-bottom:50px}
+.section-head__index{display:inline-block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;font-weight:600}
+.section-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:60px;flex-wrap:wrap}
+.section-top .section-head{margin-bottom:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 32px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border:1px solid transparent;transition:transform .4s var(--ease),background .5s var(--ease),border-color .5s var(--ease),color .5s var(--ease);position:relative;overflow:hidden;cursor:pointer;will-change:transform}
+.btn__inner{position:relative;z-index:2;display:inline-block;transition:transform .4s var(--ease)}
+.btn--solid{background:var(--accent);color:#0f0f0f;border-color:var(--accent)}
+.btn--solid::before{content:"";position:absolute;inset:0;background:#f8f6f2;transform:translateY(101%);transition:transform .5s var(--ease);z-index:1}
+.btn--solid:hover::before{transform:translateY(0)}
+.btn--outline{border-color:rgba(248,246,242,.25);color:var(--text)}
+.btn--outline::before{content:"";position:absolute;inset:0;background:var(--accent);transform:translateY(101%);transition:transform .5s var(--ease);z-index:1}
+.btn--outline:hover{border-color:var(--accent);color:#0f0f0f}
+.btn--outline:hover::before{transform:translateY(0)}
+.btn--text{padding:16px 0;border:none;border-bottom:1px solid rgba(248,246,242,.25);color:var(--text)}
+.btn--text::after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.btn--text:hover::after{transform:scaleX(1)}
+.btn--text:hover{color:var(--accent)}
+.btn--lg{padding:20px 40px;font-size:13px}
+
+.header{position:fixed;top:0;left:0;right:0;z-index:900;padding:22px 0;transition:padding .4s var(--ease),background .4s var(--ease),border-color .4s var(--ease);border-bottom:1px solid transparent}
+.header.is-scrolled{padding:12px 0;background:rgba(15,15,15,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:var(--border)}
+.header__inner{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.logo{display:flex;align-items:center;gap:12px;transition:opacity .3s;cursor:pointer}
+.logo:hover{opacity:.85}
+.logo__mark{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--accent);color:var(--accent);font-family:var(--font-d);font-size:22px;font-style:italic;font-weight:500;background:rgba(15,15,15,.4)}
+.logo__text{display:flex;flex-direction:column;font-size:14px;letter-spacing:.26em;font-weight:700;color:var(--text)}
+.logo__text small{font-size:8.5px;letter-spacing:.22em;color:var(--text-soft);font-weight:400;margin-top:2px;text-transform:uppercase}
+.logo--footer .logo__mark{width:50px;height:50px;font-size:26px}
+.logo--footer .logo__text{font-size:16px}
+
+.nav{display:flex;gap:32px}
+.nav__link{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,246,242,.68);position:relative;transition:color .3s;padding:6px 0;cursor:pointer;font-weight:500}
+.nav__link::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.nav__link:hover,.nav__link.is-active{color:var(--text)}
+.nav__link:hover::after,.nav__link.is-active::after{transform:scaleX(1);transform-origin:left}
+
+.burger{display:none;width:40px;height:40px;flex-direction:column;justify-content:center;gap:6px;padding:0 8px}
+.burger span{display:block;height:1.5px;background:var(--text);transition:transform .4s var(--ease),opacity .3s;border-radius:1px}
+.burger.is-open span:first-child{transform:translateY(3.75px) rotate(45deg)}
+.burger.is-open span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
+
+.mobile-menu{position:fixed;inset:0;background:#0f0f0f;z-index:890;transform:translateY(-100%);transition:transform .6s var(--ease);display:flex;align-items:center;justify-content:center;padding:80px 32px}
+.mobile-menu.is-open{transform:translateY(0)}
+.mobile-menu__inner{display:flex;flex-direction:column;gap:20px;text-align:center}
+.mobile-menu__link{font-family:var(--font-d);font-size:clamp(32px,7vw,56px);font-weight:400;line-height:1;transition:color .3s;cursor:pointer;color:var(--text)}
+.mobile-menu__link:hover{color:var(--accent)}
+.mobile-menu__meta{margin-top:48px;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text-dim)}
+.mobile-menu__meta a:hover{color:var(--accent)}
+
+.page{display:none}
+.page.is-active{display:block;animation:pageIn .8s var(--ease) forwards}
+@keyframes pageIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding:160px 0 70px;overflow:hidden}
+.hero__media{position:absolute;inset:0;z-index:1}
+.hero__media img{width:100%;height:100%;object-fit:cover;transform:scale(1.1)}
+.hero__scrim{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(15,15,15,.7) 0%,rgba(15,15,15,.3) 30%,rgba(15,15,15,.75) 70%,rgba(15,15,15,.98) 100%),radial-gradient(ellipse at 20% 60%,rgba(15,15,15,.5),transparent 70%)}
+.hero__content{position:relative;z-index:3;width:100%}
+.hero__eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;font-weight:600}
+.hero__eyebrow-line{width:60px;height:1px;background:var(--accent)}
+.hero__title{font-family:var(--font-d);font-weight:400;font-size:clamp(46px,9vw,140px);line-height:.98;letter-spacing:-.03em;margin-bottom:52px;max-width:15ch;color:#fff;text-shadow:0 2px 40px rgba(0,0,0,.5)}
+.hero__title .line{display:block;overflow:hidden;padding-bottom:4px}
+.hero__title .word{display:inline-block;overflow:hidden;vertical-align:top;margin-right:.18em}
+.hero__title .word span{display:inline-block;transform:translateY(115%);transition:transform 1.1s var(--ease)}
+.hero__title em{font-style:italic;color:var(--accent);font-weight:300}
+.hero__bottom{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:end;border-top:1px solid rgba(248,246,242,.18);padding-top:36px}
+.hero__lead{font-size:clamp(15px,1.1vw,17px);color:rgba(248,246,242,.85);max-width:500px;line-height:1.7}
+.hero__actions{display:flex;gap:20px;justify-content:flex-end;flex-wrap:wrap;align-items:center}
+.hero__scroll{position:absolute;bottom:32px;left:40px;z-index:4;display:flex;flex-direction:column;align-items:center;gap:12px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(248,246,242,.5)}
+.hero__scroll i{display:block;width:1px;height:56px;background:linear-gradient(180deg,var(--accent),transparent);animation:scrollLine 2.2s infinite}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+.page-hero{padding:180px 0 90px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.page-hero__bg{position:absolute;inset:0;z-index:1}
+.page-hero__bg img{width:100%;height:100%;object-fit:cover;opacity:.4}
+.page-hero__scrim{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(15,15,15,.94),rgba(15,15,15,.72))}
+.page-hero__content{position:relative;z-index:3}
+.page-hero__crumb{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(248,246,242,.55);margin-bottom:22px;font-weight:500}
+.page-hero__crumb a:hover{color:var(--accent);cursor:pointer}
+.page-hero__crumb span{color:var(--accent)}
+.page-hero h1{font-family:var(--font-d);font-weight:400;font-size:clamp(38px,6vw,100px);line-height:1.02;letter-spacing:-.02em;max-width:16ch;color:#fff}
+.page-hero h1 em{font-style:italic;color:var(--accent);font-weight:300}
+.page-hero__lead{margin-top:28px;max-width:640px;color:rgba(248,246,242,.8);font-size:clamp(15px,1.1vw,18px);line-height:1.7}
+
+.marquee{padding:32px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:var(--bg)}
+.marquee__track{display:flex;gap:56px;align-items:center;white-space:nowrap;animation:marquee var(--marquee-dur,42s) linear infinite;width:max-content}
+.marquee__track span{font-family:var(--font-d);font-size:clamp(22px,2.4vw,38px);font-style:italic;color:rgba(248,246,242,.7)}
+.marquee__track i{display:block;width:7px;height:7px;background:var(--accent);border-radius:50%;flex-shrink:0}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+.stats{padding:80px 0;border-bottom:1px solid var(--border)}
+.stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat{border-left:1px solid rgba(248,246,242,.18);padding-left:26px}
+.stat__num{font-family:var(--font-d);font-size:clamp(40px,4.2vw,72px);line-height:1;color:var(--text);font-weight:400;display:flex;align-items:baseline;gap:6px;margin-bottom:14px}
+.stat__num em{font-style:italic;color:var(--accent);font-size:.4em}
+.stat__label{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,246,242,.6);line-height:1.6;font-weight:500}
+
+/* ========== ABOUT (NEW GRID LAYOUT) ========== */
+.about__grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about__media{
+  position:relative;
+  display:grid;
+  grid-template-columns:1.35fr 1fr;
+  grid-template-rows:1fr .72fr;
+  gap:14px;
+  aspect-ratio:1 / 1.08;
+  width:100%;
+}
+.about__img{
+  overflow:hidden;
+  position:relative;
+  background:var(--bg-3);
+  min-height:0;
+}
+.about__img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 1.4s var(--ease);
+}
+.about__img:hover img{transform:scale(1.06)}
+.about__img--main{grid-column:1 / 2;grid-row:1 / 3}
+.about__img--sub{grid-column:2 / 3;grid-row:2 / 3}
+.about__stamp{position:absolute;left:-22px;top:40px;background:var(--accent);color:#0f0f0f;padding:16px 22px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;display:flex;align-items:center;gap:12px;font-weight:700;z-index:5;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.about__stamp i{width:5px;height:5px;background:#0f0f0f;border-radius:50%}
+.about__list{margin:36px 0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.about__list li{display:flex;gap:22px;padding:18px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--text-dim);align-items:center;transition:padding-left .4s var(--ease),color .3s}
+.about__list li:hover{padding-left:10px;color:var(--text)}
+.about__list li span{font-family:var(--font-d);font-style:italic;color:var(--accent);font-size:18px;flex-shrink:0;width:30px}
+
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{position:relative;overflow:hidden;background:var(--bg-3);transition:transform .6s var(--ease);transform-style:preserve-3d}
+.card__media{aspect-ratio:4/5;overflow:hidden;position:relative;clip-path:inset(100% 0 0 0);transition:clip-path 1.3s var(--ease)}
+.card.is-visible .card__media{clip-path:inset(0 0 0 0)}
+.card__media img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease);filter:brightness(.9)}
+.card:hover .card__media img{transform:scale(1.08);filter:brightness(1.05)}
+.card__body{padding:28px 24px 32px;position:relative;background:var(--bg-3)}
+.card__index{font-family:var(--font-d);font-style:italic;font-size:18px;color:var(--accent);display:block;margin-bottom:12px}
+.card__body h3{font-family:var(--font-d);font-size:22px;font-weight:400;margin-bottom:12px;line-height:1.2;color:var(--text)}
+.card__body p{font-size:13.5px;color:var(--text-dim);line-height:1.6}
+
+.process__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{padding:36px 26px;border:1px solid var(--line);position:relative;transition:all .5s var(--ease);background:var(--bg);overflow:hidden}
+.step::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);transform:scaleY(0);transform-origin:bottom;transition:transform .6s var(--ease)}
+.step:hover::before{transform:scaleY(1);transform-origin:top}
+.step:hover{background:var(--bg-3);border-color:rgba(201,169,97,.4)}
+.step__num{font-family:var(--font-d);font-style:italic;font-size:40px;color:var(--accent);line-height:1;margin-bottom:36px}
+.step h4{font-family:var(--font-d);font-size:22px;font-weight:400;margin-bottom:12px;color:var(--text)}
+.step p{font-size:13.5px;color:var(--text-dim);line-height:1.7}
+
+.showcase{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.showcase__item{position:relative;overflow:hidden;aspect-ratio:4/5;display:block;cursor:pointer}
+.showcase__item--wide{grid-column:1/-1;aspect-ratio:21/9}
+.showcase__item img{width:100%;height:100%;object-fit:cover;transition:transform 1.5s var(--ease);filter:brightness(.78)}
+.showcase__item:hover img{transform:scale(1.07);filter:brightness(.95)}
+.showcase__meta{position:absolute;left:0;right:0;bottom:0;padding:32px;z-index:2;background:linear-gradient(180deg,transparent,rgba(15,15,15,.92));display:flex;flex-direction:column;gap:6px}
+.showcase__cat{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.showcase__meta h3{font-family:var(--font-d);font-size:clamp(24px,2.6vw,38px);font-weight:400;line-height:1.1;margin-top:4px;color:#fff}
+.showcase__sub{font-size:12.5px;color:rgba(248,246,242,.75);letter-spacing:.06em}
+
+/* ========== PHOTO BAND (NEW) ========== */
+.photo-band{position:relative;height:60vh;min-height:420px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.photo-band__bg{position:absolute;inset:0;z-index:1}
+.photo-band__bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+.photo-band__scrim{position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at center,rgba(15,15,15,.4),rgba(15,15,15,.85))}
+.photo-band__content{position:relative;z-index:3;text-align:center;max-width:820px;padding:0 40px}
+.photo-band__quote{font-family:var(--font-d);font-size:clamp(28px,4vw,56px);font-style:italic;font-weight:300;line-height:1.25;color:#fff;margin-bottom:24px}
+.photo-band__quote em{color:var(--accent);font-weight:400}
+.photo-band__caption{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:600}
+
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:48px;border-bottom:1px solid var(--line);padding-bottom:20px}
+.filter{padding:12px 20px;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,246,242,.6);border:1px solid transparent;transition:all .4s var(--ease);cursor:pointer;font-weight:600}
+.filter:hover{color:var(--text)}
+.filter.is-active{color:var(--accent);border-color:var(--accent)}
+
+.project-card{display:block;position:relative;overflow:hidden;aspect-ratio:4/5;transition:opacity .5s,transform .6s var(--ease);cursor:pointer;transform-style:preserve-3d}
+.project-card.is-hidden{display:none}
+.project-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.5s var(--ease);filter:brightness(.75)}
+.project-card:hover img{transform:scale(1.08);filter:brightness(.95)}
+.project-card__meta{position:absolute;left:0;right:0;bottom:0;padding:28px;z-index:2;background:linear-gradient(180deg,transparent,rgba(15,15,15,.92))}
+.project-card__meta h3{font-family:var(--font-d);font-size:26px;font-weight:400;line-height:1.15;margin:8px 0 8px;color:#fff}
+.project-card__meta p{font-size:13px;color:rgba(248,246,242,.8)}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+.service-detail{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:70px 0;border-bottom:1px solid var(--line)}
+.service-detail:first-child{padding-top:0}
+.service-detail:last-child{border-bottom:none}
+.service-detail__media{aspect-ratio:4/3;overflow:hidden;position:relative;clip-path:inset(0 0 0 100%);transition:clip-path 1.5s var(--ease);background:var(--bg-3)}
+.service-detail.is-visible .service-detail__media{clip-path:inset(0 0 0 0)}
+.service-detail__media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.3s var(--ease)}
+.service-detail__media:hover img{transform:scale(1.05)}
+.service-detail__body .section-head__index{margin-bottom:18px}
+.service-detail__body h3{font-family:var(--font-d);font-size:clamp(26px,2.8vw,40px);font-weight:400;margin-bottom:20px;line-height:1.1;color:var(--text)}
+.service-detail__body p{font-size:15px;color:var(--text-dim);line-height:1.75;margin-bottom:24px}
+.service-detail__list{display:flex;flex-direction:column;gap:12px;margin-bottom:30px}
+.service-detail__list li{display:flex;gap:14px;font-size:14.5px;color:var(--text-dim);line-height:1.6}
+.service-detail__list li::before{content:"";width:20px;height:1px;background:var(--accent);flex-shrink:0;margin-top:10px}
+
+.timeline{border-top:1px solid var(--line)}
+.tl-item{display:grid;grid-template-columns:170px 1fr;gap:60px;padding:36px 0;border-bottom:1px solid var(--line);align-items:start;transition:padding-left .5s var(--ease)}
+.tl-item:hover{padding-left:12px}
+.tl-year{font-family:var(--font-d);font-style:italic;font-size:48px;color:var(--accent);line-height:1}
+.tl-body h4{font-family:var(--font-d);font-size:24px;font-weight:400;margin-bottom:12px;color:var(--text)}
+.tl-body p{font-size:14.5px;color:var(--text-dim);line-height:1.7;max-width:700px}
+
+.cta{position:relative;padding:130px 0;overflow:hidden}
+.cta__media{position:absolute;inset:0;z-index:1}
+.cta__media img{width:100%;height:100%;object-fit:cover;opacity:.45}
+.cta__scrim{position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at center,rgba(15,15,15,.75),rgba(15,15,15,.97))}
+.cta__inner{position:relative;z-index:3;text-align:center;display:flex;flex-direction:column;align-items:center}
+.cta__inner .section-head__index{margin-bottom:24px}
+.cta__inner .h2{margin-bottom:24px}
+.cta__actions{margin-top:44px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;align-items:center}
+
+.contact-form{background:var(--bg-3);padding:44px;border:1px solid var(--line);display:grid;gap:22px;max-width:660px;width:100%;margin-top:36px;text-align:left}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{position:relative}
+.field input,.field textarea,.field select{width:100%;padding:16px 0;background:transparent;border:none;border-bottom:1px solid var(--line);font-size:15px;outline:none;transition:border-color .3s;font-family:var(--font-b);color:var(--text)}
+.field textarea{resize:vertical;min-height:90px}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent)}
+.field label{position:absolute;top:16px;left:0;font-size:14.5px;color:rgba(248,246,242,.5);pointer-events:none;transition:all .3s var(--ease)}
+.field input:focus+label,.field input:not(:placeholder-shown)+label,
+.field textarea:focus+label,.field textarea:not(:placeholder-shown)+label{top:-9px;font-size:10.5px;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.contact-form .btn{justify-self:start}
+
+.footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--bg)}
+.footer__top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;padding-bottom:60px;border-bottom:1px solid var(--line)}
+.footer__brand p{color:var(--text-dim);font-size:14px;line-height:1.7;max-width:340px;margin-top:22px}
+.footer__col{display:flex;flex-direction:column;gap:12px}
+.footer__col h5{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;font-weight:600}
+.footer__col a,.footer__col span{font-size:14px;color:var(--text-dim);transition:color .3s;cursor:pointer}
+.footer__col a:hover{color:var(--accent)}
+.footer__bottom{display:flex;justify-content:space-between;gap:20px;padding-top:36px;font-size:12px;color:rgba(248,246,242,.5);flex-wrap:wrap}
+.footer__bottom a:hover{color:var(--accent)}
+
+[data-reveal]{opacity:0;transform:translateY(36px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+[data-reveal].is-visible{opacity:1;transform:translateY(0)}
+[data-clip-reveal]{clip-path:inset(0 0 100% 0);transition:clip-path 1.4s var(--ease)}
+[data-clip-reveal].is-visible{clip-path:inset(0 0 0 0)}
+
+@media(max-width:1100px){
+  .container{padding:0 26px}
+  .nav,.header__cta{display:none}
+  .burger{display:flex}
+  .section{padding:80px 0}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .process__grid{grid-template-columns:repeat(2,1fr)}
+  .stats__grid{grid-template-columns:repeat(2,1fr)}
+  .stats{padding:60px 0}
+  .footer__top{grid-template-columns:1fr 1fr;gap:36px;padding-bottom:44px}
+  .about__grid{grid-template-columns:1fr;gap:50px}
+  .about__media{max-width:560px;margin:0 auto}
+  .hero__bottom{grid-template-columns:1fr;gap:28px}
+  .hero__actions{justify-content:flex-start}
+  .service-detail{grid-template-columns:1fr;gap:36px;padding:50px 0}
+  .service-detail__media{clip-path:inset(0 0 0 0) !important}
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .tl-item{grid-template-columns:1fr;gap:14px}
+  .tl-year{font-size:38px}
+  .hero__scroll{display:none}
+  .footer{padding:60px 0 30px}
+  .photo-band{height:50vh;min-height:340px}
+}
+@media(max-width:700px){
+  .container{padding:0 20px}
+  .section{padding:64px 0}
+  .cards,.process__grid,.stats__grid,.showcase,.projects-grid,.form-row{grid-template-columns:1fr}
+  .showcase__item--wide{grid-column:auto;aspect-ratio:4/5}
+  .marquee__track span{font-size:20px}
+  .marquee{padding:24px 0}
+  .contact-form{padding:28px 22px}
+  .footer__top{grid-template-columns:1fr;padding-bottom:36px}
+  .footer__bottom{flex-direction:column;text-align:center}
+  .hero{min-height:auto;padding:130px 0 60px}
+  .hero__title{font-size:clamp(38px,11vw,72px);margin-bottom:36px}
+  .hero__bottom{padding-top:28px}
+  .about__media{aspect-ratio:auto;grid-template-columns:1fr;grid-template-rows:auto auto}
+  .about__img--main{grid-column:1;grid-row:1;aspect-ratio:4/5}
+  .about__img--sub{grid-column:1;grid-row:2;aspect-ratio:16/10}
+  .about__stamp{left:0;top:20px}
+  .page-hero{padding:140px 0 64px}
+  .page-hero h1{font-size:clamp(34px,8vw,64px)}
+  .stats__grid{gap:24px}
+  .stat{padding-left:18px}
+  .h2{margin-bottom:18px}
+  .section-head{margin-bottom:36px}
+  .section-top{margin-bottom:44px}
+  .cta{padding:90px 0}
+  .footer{padding:50px 0 26px}
+  .photo-band{height:auto;min-height:auto;padding:60px 0}
+  .photo-band__content{padding:0 24px}
+}
+@media(max-width:420px){
+  .container{padding:0 16px}
+  .section{padding:56px 0}
+  .btn{padding:14px 26px;font-size:11px}
+  .btn--lg{padding:16px 30px;font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header class="header" id="header">
+  <div class="header__inner container">
+    <a class="logo" data-link="home">
+      <span class="logo__mark">М</span>
+      <span class="logo__text">МОНОЛИТ<small>строительная компания</small></span>
+    </a>
+    <nav class="nav">
+      <a class="nav__link" data-link="home">Главная</a>
+      <a class="nav__link" data-link="about">О компании</a>
+      <a class="nav__link" data-link="services">Услуги</a>
+      <a class="nav__link" data-link="projects">Проекты</a>
+    </nav>
+    <a class="btn btn--outline header__cta" data-link="home" data-scroll="contact-home"><span class="btn__inner">Обсудить проект</span></a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu__inner">
+    <a class="mobile-menu__link" data-link="home">Главная</a>
+    <a class="mobile-menu__link" data-link="about">О компании</a>
+    <a class="mobile-menu__link" data-link="services">Услуги</a>
+    <a class="mobile-menu__link" data-link="projects">Проекты</a>
+    <div class="mobile-menu__meta">
+      <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+      <a href="mailto:office@monolit.ru">office@monolit.ru</a>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ======================= HOME ======================= -->
+<div class="page is-active" id="page-home">
+
+  <section class="hero">
+    <div class="hero__media">
+      <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2400&q=85" alt="Строительная площадка" data-parallax="0.14">
+    </div>
+    <div class="hero__scrim"></div>
+    <div class="hero__content container">
+      <div class="hero__eyebrow"><span class="hero__eyebrow-line"></span>Полный цикл с 2004 года</div>
+      <h1 class="hero__title">
+        <span class="line" data-split>Строим то,</span>
+        <span class="line" data-split>что переживёт</span>
+        <span class="line" data-split><em>время</em></span>
+      </h1>
+      <div class="hero__bottom">
+        <p class="hero__lead" data-reveal>Проектирование, монолит, фасады, инженерия и отделка — под одной крышей. Отвечаем за результат от первой линии чертежа до передачи ключей.</p>
+        <div class="hero__actions" data-reveal data-delay="150">
+          <a class="btn btn--solid" data-link="projects" data-magnetic><span class="btn__inner">Смотреть проекты</span></a>
+          <a class="btn btn--text" data-link="home" data-scroll="contact-home"><span class="btn__inner">Рассчитать стоимость</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll"><span>Скролл</span><i></i></div>
+  </section>
+
+  <section class="marquee">
+    <div class="marquee__track">
+      <span>Монолитное строительство</span><i></i>
+      <span>Промышленные объекты</span><i></i>
+      <span>Жилые комплексы</span><i></i>
+      <span>Реконструкция</span><i></i>
+      <span>Инженерные системы</span><i></i>
+      <span>Монолитное строительство</span><i></i>
+      <span>Промышленные объекты</span><i></i>
+      <span>Жилые комплексы</span><i></i>
+      <span>Реконструкция</span><i></i>
+      <span>Инженерные системы</span><i></i>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container stats__grid">
+      <div class="stat" data-reveal><div class="stat__num"><span data-counter="20">0</span><em>лет</em></div><p class="stat__label">на рынке строительства</p></div>
+      <div class="stat" data-reveal data-delay="100"><div class="stat__num"><span data-counter="340">0</span><em>+</em></div><p class="stat__label">реализованных объектов</p></div>
+      <div class="stat" data-reveal data-delay="200"><div class="stat__num"><span data-counter="860">0</span><em>тыс. м²</em></div><p class="stat__label">построено и введено</p></div>
+      <div class="stat" data-reveal data-delay="300"><div class="stat__num"><span data-counter="98">0</span><em>%</em></div><p class="stat__label">клиентов возвращаются</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about__grid">
+      <div class="about__media" data-reveal>
+        <div class="about__img about__img--main">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=85" alt="Строительная бригада на объекте">
+        </div>
+        <div class="about__img about__img--sub">
+          <img src="https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?auto=format&fit=crop&w=900&q=85" alt="Строительный кран">
+        </div>
+        <div class="about__stamp"><span>с 2004</span><i></i><span>Москва</span></div>
+      </div>
+      <div class="about__body">
+        <div class="section-head" data-reveal><span class="section-head__index">01 — О компании</span></div>
+        <h2 class="h2" data-split>Инженерная точность и уважение к материалу</h2>
+        <p class="lead" data-reveal data-delay="100">МОНОЛИТ — генподрядная компания с собственной проектной группой, парком спецтехники и штатом из 420 специалистов. Работаем с объектами от 1 500 до 120 000 м².</p>
+        <p style="color:var(--text-dim);margin-top:20px;font-size:14.5px;line-height:1.7" data-reveal data-delay="180">Каждый проект начинается с геологии и экономики, а не с картинки. Просчитываем себестоимость на этапе концепции, фиксируем смету в договоре и ведём стройку по недельному графику, доступному заказчику в личном кабинете.</p>
+        <ul class="about__list" data-reveal data-delay="260">
+          <li><span>01</span>Собственный проектный отдел — 34 инженера</li>
+          <li><span>02</span>Парк техники: 68 единиц без арендных простоев</li>
+          <li><span>03</span>Система контроля качества в 5 этапов</li>
+          <li><span>04</span>Гарантия на несущие конструкции — 10 лет</li>
+        </ul>
+        <a class="btn btn--solid" data-link="services" data-reveal data-delay="340" data-magnetic><span class="btn__inner">Все направления</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-top">
+        <div class="section-head" data-reveal>
+          <span class="section-head__index">02 — Услуги</span>
+          <h2 class="h2 h2--sm" data-split>Полный цикл под одним договором</h2>
+        </div>
+        <a class="btn btn--text" data-link="services" data-reveal data-delay="150"><span class="btn__inner">Подробнее об услугах</span></a>
+      </div>
+      <div class="cards">
+        <article class="card" data-reveal data-tilt>
+          <div class="card__media"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=85" alt="Проектирование"></div>
+          <div class="card__body"><span class="card__index">01</span><h3>Проектирование</h3><p>Архитектура, конструкции, инженерия. BIM-модель и полный комплект рабочей документации.</p></div>
+        </article>
+        <article class="card" data-reveal data-delay="120" data-tilt>
+          <div class="card__media"><img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1000&q=85" alt="Монолит"></div>
+          <div class="card__body"><span class="card__index">02</span><h3>Монолитные работы</h3><p>Нулевой цикл, каркас, перекрытия. Собственная опалубка и бетон с заводским контролем.</p></div>
+        </article>
+        <article class="card" data-reveal data-delay="240" data-tilt>
+          <div class="card__media"><img src="https://images.unsplash.com/photo-1590725140246-20acdee442be?auto=format&fit=crop&w=1000&q=85" alt="Фасады"></div>
+          <div class="card__body"><span class="card__index">03</span><h3>Фасады и отделка</h3><p>Вентилируемые системы, клинкер, стекло. Внутренняя отделка под ключ по дизайн-проекту.</p></div>
+        </article>
+        <article class="card" data-reveal data-delay="360" data-tilt>
+          <div class="card__media"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=85" alt="Инженерия"></div>
+          <div class="card__body"><span class="card__index">04</span><h3>Инженерные системы</h3><p>ОВиК, водоснабжение, электрика, слаботочные системы, автоматизация и диспетчеризация.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO BAND -->
+  <section class="photo-band">
+    <div class="photo-band__bg"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=85" alt="Строительство"></div>
+    <div class="photo-band__scrim"></div>
+    <div class="photo-band__content" data-reveal>
+      <p class="photo-band__quote">«Мы строим с расчётом на <em>50+ лет</em>. Материалы и решения — только с проверенной историей»</p>
+      <span class="photo-band__caption">Главный инженер проектов</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-head__index">03 — Процесс</span>
+        <h2 class="h2" data-split>Как проходит работа</h2>
+      </div>
+      <div class="process__grid">
+        <div class="step" data-reveal><div class="step__num">01</div><h4>Бриф и аудит</h4><p>Изучаем участок, геологию, ограничения и бюджет. Даём честную оценку реализуемости.</p></div>
+        <div class="step" data-reveal data-delay="100"><div class="step__num">02</div><h4>Концепция и смета</h4><p>Показываем 2–3 объёмно-планировочных решения и фиксируем смету в договоре.</p></div>
+        <div class="step" data-reveal data-delay="200"><div class="step__num">03</div><h4>Проект и стройка</h4><p>Рабочая документация, график, мобилизация. Еженедельный отчёт с фотофиксацией.</p></div>
+        <div class="step" data-reveal data-delay="300"><div class="step__num">04</div><h4>Сдача и гарантия</h4><p>Исполнительная документация, обучение службы эксплуатации, гарантийное обслуживание.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-top">
+        <div class="section-head" data-reveal>
+          <span class="section-head__index">04 — Избранное</span>
+          <h2 class="h2 h2--sm" data-split>Объекты, которыми гордимся</h2>
+        </div>
+        <a class="btn btn--text" data-link="projects" data-reveal data-delay="150"><span class="btn__inner">Все проекты</span></a>
+      </div>
+      <div class="showcase">
+        <a class="showcase__item showcase__item--wide" data-link="projects" data-reveal>
+          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=85" alt="ЖК Северный парк">
+          <div class="showcase__meta"><span class="showcase__cat">Жилой комплекс</span><h3>Северный парк</h3><span class="showcase__sub">42 000 м² · Москва · 2023</span></div>
+        </a>
+        <a class="showcase__item" data-link="projects" data-reveal data-delay="120">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=85" alt="Бизнес-центр">
+          <div class="showcase__meta"><span class="showcase__cat">Коммерция</span><h3>БЦ «Гранит»</h3><span class="showcase__sub">18 400 м² · 2022</span></div>
+        </a>
+        <a class="showcase__item" data-link="projects" data-reveal data-delay="240">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85" alt="Частная резиденция">
+          <div class="showcase__meta"><span class="showcase__cat">Частный дом</span><h3>Резиденция Липки</h3><span class="showcase__sub">840 м² · 2024</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact-home">
+    <div class="cta__media"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=85" alt="" data-parallax="0.1"></div>
+    <div class="cta__scrim"></div>
+    <div class="container cta__inner">
+      <span class="section-head__index" data-reveal>05 — Старт</span>
+      <h2 class="h2 h2--xl" data-split>Расскажите о вашем объекте</h2>
+      <p class="lead lead--center" data-reveal data-delay="150">Пришлём предварительную оценку стоимости и сроков в течение двух рабочих дней.</p>
+      <form class="contact-form" data-form data-reveal data-delay="250">
+        <div class="form-row">
+          <div class="field"><input type="text" id="name" placeholder=" " required><label for="name">Ваше имя</label></div>
+          <div class="field"><input type="tel" id="phone" placeholder=" " required><label for="phone">Телефон</label></div>
+        </div>
+        <div class="field"><input type="email" id="email" placeholder=" "><label for="email">Email</label></div>
+        <div class="field"><textarea id="msg" placeholder=" " required></textarea><label for="msg">Опишите объект: площадь, назначение, сроки</label></div>
+        <button type="submit" class="btn btn--solid btn--lg" data-magnetic><span class="btn__inner">Отправить заявку</span></button>
+      </form>
+    </div>
+  </section>
+
+</div>
+
+<!-- ======================= ABOUT ======================= -->
+<div class="page" id="page-about">
+
+  <section class="page-hero">
+    <div class="page-hero__bg"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=85" alt="" data-parallax="0.08"></div>
+    <div class="page-hero__scrim"></div>
+    <div class="container page-hero__content">
+      <div class="page-hero__crumb"><a data-link="home">Главная</a> · <span>О компании</span></div>
+      <h1 data-split>Двадцать лет <em>на стройке</em></h1>
+      <p class="page-hero__lead" data-reveal data-delay="200">Мы не просто подрядчик. Мы инженерная команда, которая берёт на себя ответственность за каждый куб бетона, каждый узел и каждый день просрочки.</p>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container stats__grid">
+      <div class="stat" data-reveal><div class="stat__num"><span data-counter="20">0</span><em>лет</em></div><p class="stat__label">непрерывной работы</p></div>
+      <div class="stat" data-reveal data-delay="100"><div class="stat__num"><span data-counter="420">0</span><em>чел.</em></div><p class="stat__label">в штате компании</p></div>
+      <div class="stat" data-reveal data-delay="200"><div class="stat__num"><span data-counter="68">0</span><em>ед.</em></div><p class="stat__label">спецтехники в парке</p></div>
+      <div class="stat" data-reveal data-delay="300"><div class="stat__num"><span data-counter="12">0</span><em>регионов</em></div><p class="stat__label">география проектов</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about__grid">
+      <div class="about__media" data-reveal>
+        <div class="about__img about__img--main">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=85" alt="Строительная площадка">
+        </div>
+        <div class="about__img about__img--sub">
+          <img src="https://images.unsplash.com/photo-1590725140246-20acdee442be?auto=format&fit=crop&w=900&q=85" alt="Фасад здания">
+        </div>
+        <div class="about__stamp"><span>Миссия</span><i></i><span>01</span></div>
+      </div>
+      <div class="about__body">
+        <div class="section-head" data-reveal><span class="section-head__index">Наша философия</span></div>
+        <h2 class="h2" data-split>Строить честно и надолго</h2>
+        <p class="lead" data-reveal data-delay="100">Мы верим, что хорошая стройка — это не только про сроки и смету. Это про людей, которые будут здесь жить и работать через 50 лет.</p>
+        <p style="color:var(--text-dim);margin-top:20px;font-size:14.5px;line-height:1.7" data-reveal data-delay="180">Поэтому мы не экономим на геологии, не занижаем марку бетона, не играем в «допработы». Всё, что нужно — заложено в проект и смету на старте. Заказчик видит реальную картину, а не презентационную.</p>
+        <p style="color:var(--text-dim);margin-top:16px;font-size:14.5px;line-height:1.7" data-reveal data-delay="240">За 20 лет мы построили 340 объектов и ни разу не сорвали сдачу по своей вине. Это не маркетинговый слоган — это операционный стандарт, который держится на трёх вещах: своих людях, своей технике и своей проектной школе.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO BAND -->
+  <section class="photo-band">
+    <div class="photo-band__bg"><img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=2000&q=85" alt="Монолитное строительство"></div>
+    <div class="photo-band__scrim"></div>
+    <div class="photo-band__content" data-reveal>
+      <p class="photo-band__quote">«Инженерная культура — это когда <em>каждый узел</em> проверен до выхода на площадку»</p>
+      <span class="photo-band__caption">Директор по строительству</span>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-head__index">История</span>
+        <h2 class="h2" data-split>Ключевые этапы</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item" data-reveal><div class="tl-year">2004</div><div class="tl-body"><h4>Основание компании</h4><p>Три инженера-строителя открывают небольшую подрядную организацию в Москве. Первый объект — реконструкция склада на 1 200 м².</p></div></div>
+        <div class="tl-item" data-reveal><div class="tl-year">2009</div><div class="tl-body"><h4>Собственный проектный отдел</h4><p>Компания переходит от субподряда к полному циклу. Появляется архитектурная группа и служба главного инженера проекта.</p></div></div>
+        <div class="tl-item" data-reveal><div class="tl-year">2014</div><div class="tl-body"><h4>Первый жилой комплекс</h4><p>Сдаём ЖК «Пресня Парк» на 22 000 м². Получаем допуск СРО на генподряд объектов повышенной ответственности.</p></div></div>
+        <div class="tl-item" data-reveal><div class="tl-year">2019</div><div class="tl-body"><h4>Собственный парк техники</h4><p>Инвестируем в 68 единиц спецтехники. Отказываемся от аренды — сокращаем простои и стабилизируем себестоимость.</p></div></div>
+        <div class="tl-item" data-reveal><div class="tl-year">2024</div><div class="tl-body"><h4>860 000 м² построено</h4><p>Компания работает в 12 регионах, штат — 420 человек, портфель проектов — 180 000 м² на текущий год.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-head__index">Принципы</span>
+        <h2 class="h2" data-split>На чём стоит МОНОЛИТ</h2>
+      </div>
+      <div class="process__grid">
+        <div class="step" data-reveal><div class="step__num">01</div><h4>Прозрачность</h4><p>Смета фиксируется в договоре. Любое отклонение согласуется письменно до начала работ.</p></div>
+        <div class="step" data-reveal data-delay="100"><div class="step__num">02</div><h4>Свои люди</h4><p>Ключевые специалисты — в штате. Мы не передаём ответственность случайным субподрядчикам.</p></div>
+        <div class="step" data-reveal data-delay="200"><div class="step__num">03</div><h4>Инженерная культура</h4><p>Каждый узел проверяется по BIM-модели до выхода на площадку. Ошибки дешевле ловить в 3D.</p></div>
+        <div class="step" data-reveal data-delay="300"><div class="step__num">04</div><h4>Долговечность</h4><p>Мы строим с расчётом на 50+ лет. Материалы и решения — только с проверенной историей.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta__media"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=85" alt="" data-parallax="0.1"></div>
+    <div class="cta__scrim"></div>
+    <div class="container cta__inner">
+      <span class="section-head__index" data-reveal>Сотрудничество</span>
+      <h2 class="h2 h2--xl" data-split>Готовы обсудить ваш проект</h2>
+      <p class="lead lead--center" data-reveal data-delay="150">Приезжаем на объект, изучаем участок и через 5 дней показываем концепцию со сметой.</p>
+      <div class="cta__actions" data-reveal data-delay="250">
+        <a class="btn btn--solid btn--lg" data-link="home" data-scroll="contact-home" data-magnetic><span class="btn__inner">Оставить заявку</span></a>
+        <a href="tel:+74951234567" class="btn btn--text btn--lg"><span class="btn__inner">+7 (495) 123-45-67</span></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ======================= SERVICES ======================= -->
+<div class="page" id="page-services">
+
+  <section class="page-hero">
+    <div class="page-hero__bg"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2000&q=85" alt="" data-parallax="0.08"></div>
+    <div class="page-hero__scrim"></div>
+    <div class="container page-hero__content">
+      <div class="page-hero__crumb"><a data-link="home">Главная</a> · <span>Услуги</span></div>
+      <h1 data-split>Всё для объекта — <em>в одном месте</em></h1>
+      <p class="page-hero__lead" data-reveal data-delay="200">Пять направлений, которые закрывают полный жизненный цикл здания: от идеи и геологии до пусконаладки и сдачи в эксплуатацию.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="service-detail" data-reveal>
+        <div class="service-detail__media"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85" alt="Проектирование"></div>
+        <div class="service-detail__body">
+          <span class="section-head__index">01 — Проектирование</span>
+          <h3 data-split>Архитектура и конструктив</h3>
+          <p>Собственный проектный отдел из 34 инженеров и архитекторов. Работаем в BIM: каждая колонна, каждый узел и каждая трасса видны в 3D до выхода на площадку. Это экономит от 8% бюджета на переделках.</p>
+          <ul class="service-detail__list">
+            <li>Архитектурные решения и рабочая документация</li>
+            <li>Конструктивные расчёты и КЖ, КМ, КМД</li>
+            <li>BIM-модель с коллизионной проверкой</li>
+            <li>Прохождение экспертизы под ключ</li>
+          </ul>
+          <a class="btn btn--solid" data-link="home" data-scroll="contact-home" data-magnetic><span class="btn__inner">Обсудить проект</span></a>
+        </div>
+      </div>
+
+      <div class="service-detail" data-reveal>
+        <div class="service-detail__media"><img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1200&q=85" alt="Монолит"></div>
+        <div class="service-detail__body">
+          <span class="section-head__index">02 — Монолит</span>
+          <h3 data-split>Каркас и нулевой цикл</h3>
+          <p>Собственная опалубка, бетон с заводским паспортом, лабораторный контроль каждой партии. Ведём монолит от котлована до перекрытий последнего этажа.</p>
+          <ul class="service-detail__list">
+            <li>Земляные работы и свайные основания</li>
+            <li>Монолитные фундаменты и ростверки</li>
+            <li>Каркас, колонны, стены, перекрытия</li>
+            <li>Гидроизоляция и обратные засыпки</li>
+          </ul>
+          <a class="btn btn--solid" data-link="home" data-scroll="contact-home" data-magnetic><span class="btn__inner">Обсудить проект</span></a>
+        </div>
+      </div>
+
+      <div class="service-detail" data-reveal>
+        <div class="service-detail__media"><img src="https://images.unsplash.com/photo-1590725140246-20acdee442be?auto=format&fit=crop&w=1200&q=85" alt="Фасады"></div>
+        <div class="service-detail__body">
+          <span class="section-head__index">03 — Фасады и отделка</span>
+          <h3 data-split>Облик и внутренняя среда</h3>
+          <p>Вентилируемые фасады, клинкер, стекло, композит. Внутри — отделка под ключ по дизайн-проекту или shell&core для арендаторов.</p>
+          <ul class="service-detail__list">
+            <li>НВФ: керамогранит, металл, HPL</li>
+            <li>Светопрозрачные конструкции и витражи</li>
+            <li>Внутренняя отделка офисов и МОП</li>
+            <li>Кровля и водоотведение</li>
+          </ul>
+          <a class="btn btn--solid" data-link="home" data-scroll="contact-home" data-magnetic><span class="btn__inner">Обсудить проект</span></a>
+        </div>
+      </div>
+
+      <div class="service-detail" data-reveal>
+        <div class="service-detail__media"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=85" alt="Инженерия"></div>
+        <div class="service-detail__body">
+          <span class="section-head__index">04 — Инженерные системы</span>
+          <h3 data-split>Жизнеобеспечение здания</h3>
+          <p>Проектируем и монтируем все инженерные системы: от отопления и вентиляции до автоматизации и диспетчеризации. Сдаём с исполнительной документацией и пусконаладкой.</p>
+          <ul class="service-detail__list">
+            <li>Отопление, вентиляция, кондиционирование</li>
+            <li>Водоснабжение и водоотведение</li>
+            <li>Электроснабжение и освещение</li>
+            <li>Слаботочные системы и АСУ</li>
+          </ul>
+          <a class="btn btn--solid" data-link="home" data-scroll="contact-home" data-magnetic><span class="btn__inner">Обсудить проект</span></a>
+        </div>
+      </div>
+
+      <div class="service-detail" data-reveal>
+        <div class="service-detail__media"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85" alt="Генподряд"></div>
+        <div class="service-detail__body">
+          <span class="section-head__index">05 — Генподряд</span>
+          <h3 data-split>Один договор — вся стройка</h3>
+          <p>Берём на себя координацию всех субподрядчиков, поставок и согласований. Заказчик получает единую точку ответственности, еженедельный отчёт и доступ в личный кабинет с графиком.</p>
+          <ul class="service-detail__list">
+            <li>Управление проектом и графиком</li>
+            <li>Закупки и логистика материалов</li>
+            <li>Технический и авторский надзор</li>
+            <li>Сдача объекта в эксплуатацию</li>
+          </ul>
+          <a class="btn btn--solid" data-link="home" data-scroll="contact-home" data-magnetic><span class="btn__inner">Обсудить проект</span></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PHOTO BAND -->
+  <section class="photo-band">
+    <div class="photo-band__bg"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=85" alt="Архитектура"></div>
+    <div class="photo-band__scrim"></div>
+    <div class="photo-band__content" data-reveal>
+      <p class="photo-band__quote">«Полный цикл — это когда <em>один договор</em> закрывает всё: от идеи до ключей»</p>
+      <span class="photo-band__caption">Генеральный директор</span>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-head__index">Как мы работаем</span>
+        <h2 class="h2" data-split>Пять шагов до ключей</h2>
+      </div>
+      <div class="process__grid">
+        <div class="step" data-reveal><div class="step__num">01</div><h4>Заявка</h4><p>Созваниваемся, уточняем задачу, приезжаем на участок или объект.</p></div>
+        <div class="step" data-reveal data-delay="100"><div class="step__num">02</div><h4>Концепция</h4><p>Через 5 дней показываем 2–3 решения и предварительную смету.</p></div>
+        <div class="step" data-reveal data-delay="200"><div class="step__num">03</div><h4>Договор</h4><p>Фиксируем стоимость, сроки и график платежей. Подписываем.</p></div>
+        <div class="step" data-reveal data-delay="300"><div class="step__num">04</div><h4>Стройка</h4><p>Мобилизация, работы по графику, еженедельные отчёты с фото.</p></div>
+        <div class="step" data-reveal data-delay="400"><div class="step__num">05</div><h4>Сдача</h4><p>Исполнительная документация, обучение эксплуатации, гарантия.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta__media"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=85" alt="" data-parallax="0.1"></div>
+    <div class="cta__scrim"></div>
+    <div class="container cta__inner">
+      <span class="section-head__index" data-reveal>Расчёт</span>
+      <h2 class="h2 h2--xl" data-split>Посчитаем ваш объект</h2>
+      <p class="lead lead--center" data-reveal data-delay="150">Пришлите площадь, назначение и сроки — вернёмся с вилкой стоимости в течение двух рабочих дней.</p>
+      <div class="cta__actions" data-reveal data-delay="250">
+        <a class="btn btn--solid btn--lg" data-link="home" data-scroll="contact-home" data-magnetic><span class="btn__inner">Оставить заявку</span></a>
+        <a class="btn btn--text btn--lg" data-link="projects"><span class="btn__inner">Смотреть проекты</span></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ======================= PROJECTS ======================= -->
+<div class="page" id="page-projects">
+
+  <section class="page-hero">
+    <div class="page-hero__bg"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=85" alt="" data-parallax="0.08"></div>
+    <div class="page-hero__scrim"></div>
+    <div class="container page-hero__content">
+      <div class="page-hero__crumb"><a data-link="home">Главная</a> · <span>Проекты</span></div>
+      <h1 data-split>340 объектов. <em>Ни одной сдачи вне срока</em></h1>
+      <p class="page-hero__lead" data-reveal data-delay="200">Жилые комплексы, бизнес-центры, частные резиденции и промышленные корпуса. Каждый проект — с реальными метрами, сроками и заказчиком.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-head__index">Портфолио</span>
+        <h2 class="h2" data-split>Избранные проекты</h2>
+      </div>
+
+      <div class="filters" data-reveal>
+        <button class="filter is-active" data-filter="all">Все</button>
+        <button class="filter" data-filter="residential">Жилые</button>
+        <button class="filter" data-filter="commercial">Коммерция</button>
+        <button class="filter" data-filter="private">Частные</button>
+        <button class="filter" data-filter="industrial">Промышленные</button>
+      </div>
+
+      <div class="projects-grid">
+        <a class="project-card" data-category="residential" data-reveal data-tilt>
+          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1000&q=85" alt="ЖК Северный парк">
+          <div class="project-card__meta"><span class="showcase__cat">Жилой комплекс</span><h3>Северный парк</h3><p>42 000 м² · Москва · 2023</p></div>
+        </a>
+        <a class="project-card" data-category="commercial" data-reveal data-delay="80" data-tilt>
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=85" alt="БЦ Гранит">
+          <div class="project-card__meta"><span class="showcase__cat">Бизнес-центр</span><h3>БЦ «Гранит»</h3><p>18 400 м² · Москва · 2022</p></div>
+        </a>
+        <a class="project-card" data-category="private" data-reveal data-delay="160" data-tilt>
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85" alt="Резиденция Липки">
+          <div class="project-card__meta"><span class="showcase__cat">Частная резиденция</span><h3>Резиденция Липки</h3><p>840 м² · Подмосковье · 2024</p></div>
+        </a>
+        <a class="project-card" data-category="industrial" data-reveal data-tilt>
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=85" alt="Завод Технопарк">
+          <div class="project-card__meta"><span class="showcase__cat">Промышленный объект</span><h3>Завод «Технопарк»</h3><p>56 000 м² · Тула · 2023</p></div>
+        </a>
+        <a class="project-card" data-category="residential" data-reveal data-delay="80" data-tilt>
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=85" alt="ЖК Река">
+          <div class="project-card__meta"><span class="showcase__cat">Жилой комплекс</span><h3>ЖК «Река»</h3><p>36 800 м² · Москва · 2024</p></div>
+        </a>
+        <a class="project-card" data-category="commercial" data-reveal data-delay="160" data-tilt>
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85" alt="Офис Меркурий">
+          <div class="project-card__meta"><span class="showcase__cat">Офисное здание</span><h3>Офис «Меркурий»</h3><p>12 200 м² · Москва · 2022</p></div>
+        </a>
+        <a class="project-card" data-category="private" data-reveal data-tilt>
+          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&q=85" alt="Вилла Сосны">
+          <div class="project-card__meta"><span class="showcase__cat">Частный дом</span><h3>Вилла «Сосны»</h3><p>620 м² · Сочи · 2024</p></div>
+        </a>
+        <a class="project-card" data-category="industrial" data-reveal data-delay="80" data-tilt>
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1000&q=85" alt="Логистический центр">
+          <div class="project-card__meta"><span class="showcase__cat">Логистика</span><h3>Логистический центр «Восток»</h3><p>74 000 м² · Казань · 2023</p></div>
+        </a>
+        <a class="project-card" data-category="residential" data-reveal data-delay="160" data-tilt>
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1000&q=85" alt="ЖК Сад">
+          <div class="project-card__meta"><span class="showcase__cat">Жилой комплекс</span><h3>ЖК «Сад»</h3><p>28 400 м² · Санкт-Петербург · 2024</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats section--dark">
+    <div class="container stats__grid">
+      <div class="stat" data-reveal><div class="stat__num"><span data-counter="340">0</span><em>+</em></div><p class="stat__label">проектов сдано</p></div>
+      <div class="stat" data-reveal data-delay="100"><div class="stat__num"><span data-counter="860">0</span><em>тыс. м²</em></div><p class="stat__label">общая площадь</p></div>
+      <div class="stat" data-reveal data-delay="200"><div class="stat__num"><span data-counter="12">0</span><em>регионов</em></div><p class="stat__label">география</p></div>
+      <div class="stat" data-reveal data-delay="300"><div class="stat__num"><span data-counter="0">0</span><em>срывов</em></div><p class="stat__label">сроков сдачи</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta__media"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85" alt="" data-parallax="0.1"></div>
+    <div class="cta__scrim"></div>
+    <div class="container cta__inner">
+      <span class="section-head__index" data-reveal>Ваш проект</span>
+      <h2 class="h2 h2--xl" data-split>Хотите такой же результат?</h2>
+      <p class="lead lead--center" data-reveal data-delay="150">Расскажите о задаче — подберём похожий кейс из портфолио и покажем смету.</p>
+      <div class="cta__actions" data-reveal data-delay="250">
+        <a class="btn btn--solid btn--lg" data-link="home" data-scroll="contact-home" data-magnetic><span class="btn__inner">Оставить заявку</span></a>
+        <a class="btn btn--text btn--lg" data-link="services"><span class="btn__inner">Наши услуги</span></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="logo logo--footer">
+          <span class="logo__mark">М</span>
+          <span class="logo__text">МОНОЛИТ<small>строительная компания</small></span>
+        </div>
+        <p>Проектируем и строим объекты, которые переживут время. Полный цикл, один договор, одна ответственность.</p>
+      </div>
+      <div class="footer__col">
+        <h5>Навигация</h5>
+        <a data-link="home">Главная</a>
+        <a data-link="about">О компании</a>
+        <a data-link="services">Услуги</a>
+        <a data-link="projects">Проекты</a>
+      </div>
+      <div class="footer__col">
+        <h5>Услуги</h5>
+        <a data-link="services">Проектирование</a>
+        <a data-link="services">Монолитные работы</a>
+        <a data-link="services">Фасады и отделка</a>
+        <a data-link="services">Инженерные системы</a>
+      </div>
+      <div class="footer__col">
+        <h5>Контакты</h5>
+        <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+        <a href="mailto:office@monolit.ru">office@monolit.ru</a>
+        <span>Москва, Пресненская наб., 12</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 МОНОЛИТ. Все права защищены.</span>
+      <span>Лицензия СРО № 034-1287</span>
+      <a href="#">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const h=document.getElementById('header');
+  const onScroll=()=>{h.classList.toggle('is-scrolled',window.scrollY>60);};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+
+(function(){
+  const bar=document.getElementById('scrollProgress');
+  const update=()=>{
+    const h=document.documentElement;
+    const max=h.scrollHeight-h.clientHeight;
+    const p=max>0?h.scrollTop/max:0;
+    bar.style.transform=`scaleX(${p})`;
+  };
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  window.__updateProgress=update;
+  update();
+})();
+
+(function(){
+  const b=document.getElementById('burger');
+  const m=document.getElementById('mobileMenu');
+  b.addEventListener('click',()=>{
+    b.classList.toggle('is-open');
+    m.classList.toggle('is-open');
+    document.body.style.overflow=m.classList.contains('is-open')?'hidden':'';
+  });
+  m.querySelectorAll('[data-link]').forEach(a=>a.addEventListener('click',()=>{
+    b.classList.remove('is-open');m.classList.remove('is-open');
+    document.body.style.overflow='';
+  }));
+})();
+
+function splitAll(root){
+  (root||document).querySelectorAll('[data-split]').forEach(el=>{
+    if(el.dataset.splitDone)return;
+    el.dataset.splitDone='1';
+    const html=el.innerHTML;
+    const tokens=html.split(/(<em>[\s\S]*?<\/em>|\s+)/).filter(t=>t.length);
+    let out='';
+    tokens.forEach(tok=>{
+      if(/^\s+$/.test(tok)){out+=tok;return;}
+      out+=`<span class="word"><span>${tok}</span></span>`;
+    });
+    el.innerHTML=out;
+  });
+}
+
+let revealIO, splitIO;
+function initReveals(root){
+  root=root||document;
+  if(!revealIO){
+    revealIO=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const el=e.target;
+          const delay=parseInt(el.dataset.delay)||0;
+          setTimeout(()=>el.classList.add('is-visible'),delay);
+          const words=el.querySelectorAll('[data-split] .word span');
+          if(words.length){
+            words.forEach((w,i)=>{setTimeout(()=>{w.style.transform='translateY(0)';},i*50);});
+          }
+          revealIO.unobserve(el);
+        }
+      });
+    },{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+  }
+  if(!splitIO){
+    splitIO=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const words=e.target.querySelectorAll('.word span');
+          words.forEach((w,i)=>{setTimeout(()=>{w.style.transform='translateY(0)';},i*55);});
+          splitIO.unobserve(e.target);
+        }
+      });
+    },{threshold:.15});
+  }
+  root.querySelectorAll('[data-reveal]').forEach(el=>{el.classList.remove('is-visible');revealIO.observe(el);});
+  root.querySelectorAll('[data-clip-reveal]').forEach(el=>{el.classList.remove('is-visible');revealIO.observe(el);});
+  root.querySelectorAll('[data-split]').forEach(el=>{
+    if(!el.closest('[data-reveal]'))splitIO.observe(el);
+  });
+}
+
+(function(){
+  let ticking=false;
+  const update=()=>{
+    const vh=window.innerHeight;
+    document.querySelectorAll('[data-parallax]').forEach(el=>{
+      if(!el.offsetParent)return;
+      const r=el.getBoundingClientRect();
+      if(r.bottom<0||r.top>vh)return;
+      const speed=parseFloat(el.dataset.parallax)||0.1;
+      const offset=(r.top+r.height/2-vh/2)*speed;
+      el.style.transform=`translateY(${offset}px) scale(1.1)`;
+    });
+    ticking=false;
+  };
+  window.addEventListener('scroll',()=>{
+    if(!ticking){requestAnimationFrame(update);ticking=true;}
+  },{passive:true});
+  window.__updateParallax=update;
+  update();
+})();
+
+function initCounters(root){
+  root=root||document;
+  const els=root.querySelectorAll('[data-counter]');
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const el=e.target;
+        if(el.dataset.counted)return;
+        el.dataset.counted='1';
+        const target=parseInt(el.dataset.counter);
+        const dur=1800;const start=performance.now();
+        const anim=(now)=>{
+          const t=Math.min((now-start)/dur,1);
+          const eased=1+2.7*Math.pow(t-1,3)+1.7*Math.pow(t-1,2);
+          el.textContent=Math.max(0,Math.floor(eased*target));
+          if(t<1)requestAnimationFrame(anim);
+          else el.textContent=target;
+        };
+        requestAnimationFrame(anim);
+        io.unobserve(el);
+      }
+    });
+  },{threshold:.4});
+  els.forEach(el=>io.observe(el));
+}
+
+(function(){
+  const track=document.querySelector('.marquee__track');
+  if(!track)return;
+  let lastY=window.scrollY;
+  let boost=0;
+  let current=42;
+  const tick=()=>{
+    const target=Math.max(10,42-boost);
+    current+=(target-current)*0.08;
+    track.style.setProperty('--marquee-dur',current+'s');
+    boost*=.92;
+    requestAnimationFrame(tick);
+  };
+  window.addEventListener('scroll',()=>{
+    const y=window.scrollY;
+    boost=Math.min(Math.abs(y-lastY)*.6,32);
+    lastY=y;
+  },{passive:true});
+  tick();
+})();
+
+function initMagnetic(root){
+  if(window.matchMedia('(hover:none)').matches)return;
+  (root||document).querySelectorAll('[data-magnetic]').forEach(el=>{
+    if(el.dataset.magBound)return;
+    el.dataset.magBound='1';
+    const inner=el.querySelector('.btn__inner');
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      const x=e.clientX-r.left-r.width/2;
+      const y=e.clientY-r.top-r.height/2;
+      el.style.transform=`translate(${x*.18}px,${y*.28}px)`;
+      if(inner)inner.style.transform=`translate(${x*.08}px,${y*.12}px)`;
+    });
+    el.addEventListener('mouseleave',()=>{
+      el.style.transform='';
+      if(inner)inner.style.transform='';
+    });
+  });
+}
+
+function initTilt(root){
+  if(window.matchMedia('(hover:none)').matches)return;
+  (root||document).querySelectorAll('[data-tilt]').forEach(el=>{
+    if(el.dataset.tiltBound)return;
+    el.dataset.tiltBound='1';
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      el.style.transform=`perspective(1200px) rotateY(${x*4}deg) rotateX(${-y*4}deg) translateY(-5px)`;
+    });
+    el.addEventListener('mouseleave',()=>{
+      el.style.transform='';
+    });
+  });
+}
+
+document.addEventListener('click',(e)=>{
+  const f=e.target.closest('.filter');
+  if(!f)return;
+  const cat=f.dataset.filter;
+  const parent=f.closest('.container');
+  parent.querySelectorAll('.filter').forEach(x=>x.classList.remove('is-active'));
+  f.classList.add('is-active');
+  parent.querySelectorAll('.project-card').forEach(c=>{
+    const match=cat==='all'||c.dataset.category===cat;
+    if(match){c.classList.remove('is-hidden');}
+    else{c.classList.add('is-hidden');}
+  });
+});
+
+document.addEventListener('submit',(e)=>{
+  const f=e.target.closest('form[data-form]');
+  if(!f)return;
+  e.preventDefault();
+  const btn=f.querySelector('button[type="submit"]');
+  const inner=btn.querySelector('.btn__inner');
+  const orig=inner?inner.textContent:'Отправить';
+  if(inner)inner.textContent='Отправлено';
+  btn.disabled=true;
+  setTimeout(()=>{if(inner)inner.textContent=orig;btn.disabled=false;f.reset();},2500);
+});
+
+(function(){
+  const pages={
+    home:document.getElementById('page-home'),
+    about:document.getElementById('page-about'),
+    services:document.getElementById('page-services'),
+    projects:document.getElementById('page-projects')
+  };
+  const navLinks=document.querySelectorAll('.nav__link');
+
+  function setActiveNav(name){
+    navLinks.forEach(l=>l.classList.toggle('is-active',l.dataset.link===name));
+  }
+
+  function resetPage(page){
+    page.querySelectorAll('[data-reveal]').forEach(el=>el.classList.remove('is-visible'));
+    page.querySelectorAll('[data-clip-reveal]').forEach(el=>el.classList.remove('is-visible'));
+    page.querySelectorAll('[data-split] .word span').forEach(w=>{w.style.transform='translateY(115%)';});
+    page.querySelectorAll('[data-counter]').forEach(el=>{delete el.dataset.counted;el.textContent='0';});
+  }
+
+  function goTo(name, scrollTo){
+    if(!pages[name])return;
+    Object.values(pages).forEach(p=>p.classList.remove('is-active'));
+    pages[name].classList.add('is-active');
+    setActiveNav(name);
+    window.scrollTo(0,0);
+    resetPage(pages[name]);
+    requestAnimationFrame(()=>{
+      splitAll(pages[name]);
+      initReveals(pages[name]);
+      initCounters(pages[name]);
+      initMagnetic(pages[name]);
+      initTilt(pages[name]);
+      if(window.__updateParallax)window.__updateParallax();
+      if(window.__updateProgress)window.__updateProgress();
+      if(scrollTo){
+        setTimeout(()=>{
+          const target=document.getElementById(scrollTo);
+          if(target)target.scrollIntoView({behavior:'smooth'});
+        },100);
+      }
+    });
+    history.replaceState(null,'','#'+name);
+  }
+
+  document.addEventListener('click',(e)=>{
+    const link=e.target.closest('[data-link]');
+    if(!link)return;
+    e.preventDefault();
+    const name=link.dataset.link;
+    const scrollTo=link.dataset.scroll;
+    const current=document.querySelector('.page.is-active');
+    const currentId=current?current.id.replace('page-',''):'';
+    if(name===currentId){
+      if(scrollTo){
+        const target=document.getElementById(scrollTo);
+        if(target)target.scrollIntoView({behavior:'smooth'});
+      } else {
+        window.scrollTo({top:0,behavior:'smooth'});
+      }
+      return;
+    }
+    goTo(name,scrollTo);
+  });
+
+  const hash=window.location.hash.replace('#','');
+  let startName='home';
+  if(hash && pages[hash]){startName=hash;}
+  Object.values(pages).forEach(p=>p.classList.remove('is-active'));
+  pages[startName].classList.add('is-active');
+  setActiveNav(startName);
+
+  splitAll(document);
+  requestAnimationFrame(()=>{
+    initReveals(document);
+    initCounters(document);
+    initMagnetic(document);
+    initTilt(document);
+  });
+})();
+
+window.addEventListener('keydown',(e)=>{
+  if(e.key==='Escape'){
+    document.getElementById('mobileMenu').classList.remove('is-open');
+    document.getElementById('burger').classList.remove('is-open');
+    document.body.style.overflow='';
+  }
+});
+</script>
+</body>
+</html>

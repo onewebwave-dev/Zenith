@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мега-супер-сайт · Постер</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #ffffff;
+            font-family: 'Arial Black', 'Segoe UI', 'Helvetica', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ---------- Фон: мемфис-фигуры вокруг постера ---------- */
+        .bg-shapes {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-shapes svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ---------- ПОСТЕР ---------- */
+        .poster {
+            position: relative;
+            z-index: 10;
+            max-width: 780px;
+            width: 100%;
+            background-color: #b6f542; /* салатовый */
+            border: 6px solid #000000;
+            border-radius: 8px;
+            padding: 70px 50px 80px;
+            text-align: center;
+            box-shadow: 18px 18px 0 #000000;
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .poster:hover {
+            transform: rotate(0deg);
+            box-shadow: 22px 22px 0 #000000;
+        }
+
+        /* ---------- ТЕКСТ ПОСТЕРА ---------- */
+        .poster-title {
+            font-size: clamp(2.4rem, 9vw, 5.4rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            color: #000000;
+            margin-bottom: 30px;
+            word-break: break-word;
+        }
+
+        .poster-title .word {
+            display: block;
+        }
+
+        .poster-subtitle {
+            display: inline-block;
+            font-size: clamp(1.4rem, 5.5vw, 2.6rem);
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            color: #ffffff;
+            background-color: #000000;
+            padding: 0.25em 0.6em;
+            border-radius: 4px;
+            transform: rotate(1.5deg);
+            max-width: 100%;
+            word-break: break-word;
+        }
+
+        /* ---------- ДЕКОР ПОСТЕРА (внутри) ---------- */
+        .poster-deco {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .poster-deco.top-left {
+            top: 22px;
+            left: 22px;
+        }
+
+        .poster-deco.top-right {
+            top: 22px;
+            right: 22px;
+        }
+
+        .poster-deco.bottom-left {
+            bottom: 22px;
+            left: 22px;
+        }
+
+        .poster-deco.bottom-right {
+            bottom: 22px;
+            right: 22px;
+        }
+
+        /* ---------- АДАПТИВ ---------- */
+        @media (max-width: 600px) {
+            .poster {
+                padding: 55px 25px 60px;
+                box-shadow: 10px 10px 0 #000000;
+                border-width: 5px;
+                border-radius: 6px;
+            }
+
+            .poster:hover {
+                box-shadow: 12px 12px 0 #000000;
+            }
+
+            .poster-deco.top-left,
+            .poster-deco.top-right,
+            .poster-deco.bottom-left,
+            .poster-deco.bottom-right {
+                transform: scale(0.7);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== ФОНОВЫЙ ДЕКОР ========== -->
+    <div class="bg-shapes">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <!-- Салатовое кольцо слева-сверху -->
+            <circle cx="120" cy="140" r="130" fill="none" stroke="#b6f542" stroke-width="26" opacity="0.55" />
+
+            <!-- Чёрное кольцо справа-снизу -->
+            <circle cx="1330" cy="760" r="170" fill="none" stroke="#000000" stroke-width="20" opacity="0.18" />
+
+            <!-- Салатовый треугольник -->
+            <polygon points="180,810 290,610 400,810" fill="#b6f542" opacity="0.55" />
+
+            <!-- Чёрные точки -->
+            <circle cx="1220" cy="150" r="15" fill="#000000" opacity="0.35" />
+            <circle cx="1300" cy="230" r="10" fill="#000000" opacity="0.35" />
+            <circle cx="1120" cy="90" r="8" fill="#000000" opacity="0.35" />
+
+            <!-- Салатовые точки -->
+            <circle cx="80" cy="740" r="14" fill="#b6f542" opacity="0.7" />
+            <circle cx="440" cy="830" r="18" fill="#b6f542" opacity="0.7" />
+            <circle cx="940" cy="70" r="20" fill="#b6f542" opacity="0.6" />
+
+            <!-- Зигзаг чёрный -->
+            <polyline points="30,430 130,350 230,450 330,350 430,450"
+                      stroke="#000000" stroke-width="9" fill="none"
+                      opacity="0.3" stroke-linecap="round" stroke-linejoin="round" />
+
+            <!-- Зигзаг салатовый -->
+            <polyline points="990,790 1070,710 1150,810 1230,710 1310,810"
+                      stroke="#b6f542" stroke-width="13" fill="none"
+                      opacity="0.7" stroke-linecap="round" stroke-linejoin="round" />
+
+            <!-- Чёрный крест -->
+            <path d="M1310 400 L 1380 470 M 1380 400 L 1310 470"
+                  stroke="#000000" stroke-width="16" fill="none"
+                  opacity="0.35" stroke-linecap="round" />
+
+            <!-- Салатовый крест -->
+            <path d="M60 540 L 110 590 M 110 540 L 60 590"
+                  stroke="#b6f542" stroke-width="14" fill="none"
+                  opacity="0.8" stroke-linecap="round" />
+
+            <!-- Маленькие квадратики -->
+            <rect x="250" y="70" width="42" height="42" fill="#b6f542"
+                  opacity="0.7" transform="rotate(25 250 70)" />
+            <rect x="1150" y="810" width="50" height="50" fill="#000000"
+                  opacity="0.2" transform="rotate(-15 1150 810)" />
+        </svg>
+    </div>
+
+    <!-- ========== ПОСТЕР ========== -->
+    <div class="poster">
+
+        <!-- Уголки-декор внутри постера -->
+        <svg class="poster-deco top-left" width="70" height="70" viewBox="0 0 70 70">
+            <circle cx="15" cy="15" r="9" fill="#000000" />
+            <circle cx="40" cy="10" r="6" fill="#ffffff" stroke="#000000" stroke-width="3" />
+            <circle cx="10" cy="45" r="7" fill="#000000" />
+        </svg>
+
+        <svg class="poster-deco top-right" width="70" height="70" viewBox="0 0 70 70">
+            <path d="M10 10 L 60 60 M 60 10 L 10 60"
+                  stroke="#000000" stroke-width="8" fill="none" stroke-linecap="round" />
+        </svg>
+
+        <svg class="poster-deco bottom-left" width="70" height="70" viewBox="0 0 70 70">
+            <polygon points="35,5 45,30 70,30 50,45 58,70 35,55 12,70 20,45 0,30 25,30"
+                     fill="#000000" />
+        </svg>
+
+        <svg class="poster-deco bottom-right" width="80" height="60" viewBox="0 0 80 60">
+            <polyline points="5,50 25,15 45,50 65,15 80,40"
+                      stroke="#000000" stroke-width="7" fill="none"
+                      stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+
+        <!-- ТЕКСТ -->
+        <h1 class="poster-title">
+            <span class="word">Мега — супер — сайт</span>
+        </h1>
+
+        <div class="poster-subtitle">
+            Ваш будет таким же!
+        </div>
+
+    </div>
+
+</body>
+</html>

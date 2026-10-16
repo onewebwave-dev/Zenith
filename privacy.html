@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Политика конфиденциальности — Zenith</title>
+<meta name="description" content="Политика обработки персональных данных веб-студии Zenith.">
+<meta name="theme-color" content="#101014">
+<meta name="robots" content="noindex,follow">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101014'/%3E%3Cpath d='M16 16H48V24L30 40H48V48H16V40L34 24H16Z' fill='%23CDFF4F'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#101014;
+  --milk:#F4F1E9;
+  --milk-2:#EAE5D9;
+  --lime:#CDFF4F;
+  --violet:#5B3DF5;
+  --display:'Unbounded','Inter',system-ui,sans-serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --wrap:900px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--milk);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.65;font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--violet)}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:0}
+p{margin:0}
+.wrap{width:min(var(--wrap),100% - 48px);margin-inline:auto}
+
+.privacy-header{
+  padding:26px 0;border-bottom:2px solid var(--ink);
+  background:rgba(244,241,233,.9);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  position:sticky;top:0;z-index:10;
+}
+.privacy-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.privacy-logo{
+  display:inline-flex;align-items:center;gap:11px;text-decoration:none;
+  font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:.04em;
+}
+.privacy-logo-mark{
+  width:36px;height:36px;display:grid;place-items:center;
+  background:var(--ink);border-radius:11px;
+}
+.privacy-logo-mark svg{width:19px;height:19px}
+.privacy-back{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 20px;border:2px solid var(--ink);border-radius:999px;
+  background:var(--lime);color:var(--ink);
+  font-size:14.5px;font-weight:600;text-decoration:none;
+  box-shadow:4px 4px 0 var(--ink);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.privacy-back:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+
+.privacy-main{padding:clamp(40px,5vw,72px) 0 clamp(64px,7vw,96px)}
+.privacy-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(16,16,20,.6);margin-bottom:18px;
+}
+.privacy-eyebrow::before{
+  content:'';width:9px;height:9px;background:var(--lime);
+  border:2px solid var(--ink);transform:rotate(45deg);flex:none;
+}
+.privacy-main h1{
+  font-size:clamp(30px,4.4vw,52px);font-weight:800;
+  letter-spacing:-.03em;margin-bottom:22px;line-height:1.05;
+}
+.privacy-lead{
+  font-size:clamp(16px,1.4vw,19px);color:rgba(16,16,20,.7);
+  margin-bottom:44px;max-width:62ch;
+}
+.privacy-main h2{
+  font-size:clamp(20px,2vw,26px);font-weight:700;
+  margin-top:44px;margin-bottom:14px;letter-spacing:-.01em;
+}
+.privacy-main p,
+.privacy-main li{
+  font-size:16.5px;color:rgba(16,16,20,.85);margin-bottom:14px;
+  max-width:72ch;
+}
+.privacy-main ul{padding-left:22px;margin:0 0 18px;list-style:disc}
+.privacy-main li{margin-bottom:8px}
+.privacy-note{
+  margin-top:44px;padding:20px 24px;
+  border:2px dashed rgba(16,16,20,.28);border-radius:14px;
+  font-size:15px;color:rgba(16,16,20,.7);
+}
+
+.privacy-footer{
+  border-top:2px solid var(--ink);background:var(--ink);color:var(--milk);
+  padding:28px 0;
+}
+.privacy-footer .wrap{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+  font-size:14px;color:rgba(244,241,233,.6);
+}
+.privacy-footer a{color:var(--lime);text-decoration:none;border-bottom:1px solid rgba(205,255,79,.4)}
+.privacy-footer a:hover{border-color:var(--lime)}
+
+@media (max-width:520px){
+  .wrap{width:calc(100% - 32px)}
+  .privacy-header .wrap{flex-direction:column;align-items:flex-start;gap:14px}
+}
+</style>
+</head>
+<body>
+
+<header class="privacy-header">
+  <div class="wrap">
+    <a class="privacy-logo" href="index.html" aria-label="Zenith — на главную">
+      <span class="privacy-logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 16H48V24L30 40H48V48H16V40L34 24H16Z" fill="#CDFF4F"/>
+        </svg>
+      </span>
+      <span>ZENITH</span>
+    </a>
+    <a class="privacy-back" href="index.html">← Вернуться на сайт</a>
+  </div>
+</header>
+
+<main class="privacy-main">
+  <div class="wrap">
+    <p class="privacy-eyebrow">Документы</p>
+    <h1>Политика обработки<br>персональных данных</h1>
+
+    <p class="privacy-lead">
+      Настоящая Политика описывает, какие персональные данные собирает сайт веб-студии Zenith
+      (далее — «Сайт»), с какой целью, как они хранятся и какие права есть у пользователя.
+      Используя Сайт и отправляя заявку через форму, вы соглашаетесь с условиями этой Политики.
+    </p>
+
+    <h2>1. Какие данные мы собираем</h2>
+    <p>Мы собираем только те данные, которые пользователь передаёт добровольно через форму заявки:</p>
+    <ul>
+      <li>имя или то, как к вам обращаться;</li>
+      <li>контакт для связи (Telegram, email или иной указанный вами способ);</li>
+      <li>тип проекта и интересующий тариф (если выбраны);</li>
+      <li>текст описания проекта, который вы указываете в свободной форме.</li>
+    </ul>
+    <p>Дополнительно, при вашем отдельном согласии на аналитику, автоматически собираются обезличенные технические данные:</p>
+    <ul>
+      <li>cookie-файлы;</li>
+      <li>IP-адрес;</li>
+      <li>тип устройства, браузера и операционной системы;</li>
+      <li>страницы, которые вы посещаете, и действия на них.</li>
+    </ul>
+
+    <h2>2. Зачем мы обрабатываем данные</h2>
+    <ul>
+      <li>Чтобы связаться с вами по оставленной заявке и обсудить проект.</li>
+      <li>Чтобы понять, какие материалы и разделы Сайта полезны пользователям (только при согласии на аналитику).</li>
+      <li>Чтобы улучшать работу Сайта и качество услуг.</li>
+    </ul>
+    <p>Мы не используем ваши данные для рекламы, не передаём их третьим лицам для маркетинга и не продаём.</p>
+
+    <h2>3. Кому передаются данные</h2>
+    <p>Для работы Сайта используются два сторонних сервиса:</p>
+    <ul>
+      <li><strong>Web3Forms</strong> — сервис обработки формы заявки. Ваши данные из формы передаются через него на нашу электронную почту.</li>
+      <li><strong>PostHog</strong> (серверы в США) — сервис веб-аналитики. Запускается только после нажатия кнопки «Принять» в cookie-баннере. Собирает обезличенные технические данные: cookie, IP, тип устройства и браузера, действия на страницах.</li>
+    </ul>
+    <p>Оба сервиса работают по своим политикам конфиденциальности. Мы не передаём данные из формы заявки в аналитику PostHog.</p>
+
+    <h2>4. Cookie и аналитика</h2>
+    <p>Cookie — это небольшие текстовые файлы, которые сохраняются в вашем браузере. Мы используем их только для аналитики PostHog и только после того, как вы нажмёте «Принять» в баннере согласия.</p>
+    <p>Если вы не нажали «Принять», аналитика не запускается и cookie-файлы аналитики не сохраняются. Вы можете в любой момент очистить cookie в настройках браузера — это отключит аналитику на вашем устройстве.</p>
+
+    <h2>5. Сколько хранятся данные</h2>
+    <p>Данные из формы заявки хранятся в нашей электронной почте столько, сколько необходимо для обработки обращения и дальнейшей переписки. По вашему запросу мы удаляем их.</p>
+    <p>Данные аналитики PostHog хранятся согласно политике самого сервиса. Мы не управляем этими сроками напрямую.</p>
+
+    <h2>6. Ваши права</h2>
+    <p>Вы вправе:</p>
+    <ul>
+      <li>запросить, какие ваши данные у нас есть;</li>
+      <li>попросить исправить или удалить ваши данные;</li>
+      <li>отозвать согласие на обработку данных, написав нам на почту;</li>
+      <li>отключить аналитику, очистив cookie в браузере.</li>
+    </ul>
+
+    <h2>7. Контакты</h2>
+    <p>По любым вопросам, связанным с обработкой персональных данных, пишите на:
+      <a href="mailto:onewebwave@gmail.com">onewebwave@gmail.com</a>.
+      Или в Telegram: <a href="https://t.me/zenithworker1" target="_blank" rel="noopener">@zenithworker1</a>.
+    </p>
+
+    <h2>8. Изменения политики</h2>
+    <p>Мы можем обновлять эту Политику. Актуальная версия всегда размещена на этой странице. Дата последнего обновления указана ниже.</p>
+
+    <p class="privacy-note">
+      Дата последнего обновления: <span id="privacy-date">2026</span>.
+    </p>
+  </div>
+</main>
+
+<footer class="privacy-footer">
+  <div class="wrap">
+    <p>© <span id="privacy-year">2026</span> Zenith. Все права защищены.</p>
+    <p><a href="index.html">На главную</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var y = new Date().getFullYear();
+  var ey = document.getElementById('privacy-year');
+  var ed = document.getElementById('privacy-date');
+  if (ey) ey.textContent = y;
+  if (ed) ed.textContent = y;
+})();
+</script>
+
+</body>
+</html>

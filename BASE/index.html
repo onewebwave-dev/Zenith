@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Анна Соколова — портретный и семейный фотограф</title>
+<meta name="description" content="Портретная и семейная съёмка. Искренние эмоции, естественный свет, тёплые кадры. Запись через Telegram.">
+<meta property="og:title" content="Анна Соколова — фотограф">
+<meta property="og:description" content="Портреты и семейные истории. Без лишнего — только вы, свет и эмоции.">
+<meta property="og:image" content="assets/image1.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📷</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f5;--sur:#fff;--tx:#161512;--ts:#4a4741;--mu:#8f8a80;--ln:#e8e4dc;--ac:#b89878;--w:1280px;--e:cubic-bezier(.22,.61,.36,1);--eo:cubic-bezier(.16,1,.3,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.7 'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
+::selection{background:var(--tx);color:var(--bg)}
+.c{width:100%;max-width:var(--w);margin:0 auto;padding:0 36px}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:400;line-height:1.12;letter-spacing:-.015em}
+.eb{display:inline-flex;align-items:center;gap:12px;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mu);font-weight:500}
+.eb::before{content:'';width:26px;height:1px;background:var(--mu)}
+
+/* ===== REVEAL — scroll-driven, без JS, не может «не сработать» ===== */
+@keyframes rvUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.rv{animation:rvUp .9s var(--eo) both}
+@supports (animation-timeline: view()){
+  .rv{animation-timeline:view();animation-range:entry 0% entry 45%}
+}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:100;height:76px;display:flex;align-items:center;background:rgba(250,248,245,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:border-color .4s var(--e),background .4s var(--e),transform .5s var(--e)}
+.nav.sc{border-bottom-color:var(--ln);background:rgba(250,248,245,.92)}
+.nav.hd{transform:translateY(-100%)}
+.nav__i{width:100%;max-width:var(--w);margin:0 auto;padding:0 36px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav__l{font-family:'Playfair Display',serif;font-size:20px;white-space:nowrap}
+.nav__l span{color:var(--mu);font-style:italic}
+.nav__u{display:flex;gap:34px;list-style:none}
+.nav__u a{font-size:13.5px;color:var(--mu);position:relative;padding:4px 0;transition:color .35s var(--e)}
+.nav__u a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--tx);transition:width .4s var(--eo)}
+.nav__u a:hover{color:var(--tx)}
+.nav__u a:hover::after{width:100%}
+.nav__c{position:relative;overflow:hidden;font-size:13px;padding:12px 24px;border:1px solid var(--tx);border-radius:100px;white-space:nowrap;transition:color .4s var(--e);z-index:1}
+.nav__c::before{content:'';position:absolute;inset:0;background:var(--tx);transform:translateY(101%);transition:transform .5s var(--eo);z-index:-1}
+.nav__c:hover{color:#fff}
+.nav__c:hover::before{transform:translateY(0)}
+.bg{display:none;width:40px;height:40px;flex-direction:column;justify-content:center;align-items:flex-end;gap:6px}
+.bg span{display:block;height:1px;background:var(--tx);transition:.4s var(--e)}
+.bg span:nth-child(1){width:22px}
+.bg span:nth-child(2){width:16px}
+.bg.op span:nth-child(1){transform:translateY(3.5px) rotate(45deg);width:22px}
+.bg.op span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg);width:22px}
+
+/* HERO */
+.hero{padding:170px 0 100px;position:relative}
+.hero__g{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero__t{font-size:clamp(46px,6.4vw,88px);margin:26px 0 30px;overflow:hidden}
+.hero__t .ln{display:block;overflow:hidden}
+.hero__t .ln span{display:inline-block;transform:translateY(115%);animation:up 1.2s var(--eo) forwards}
+.hero__t .ln:nth-child(2) span{animation-delay:.18s}
+.hero__t em{font-style:italic;color:var(--mu)}
+@keyframes up{to{transform:translateY(0)}}
+.hero__x{font-size:17px;color:var(--ts);max-width:460px;font-weight:300;margin-bottom:42px;opacity:0;animation:fu 1s var(--eo) .55s forwards}
+.hero__a{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fu 1s var(--eo) .7s forwards}
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;font-size:14px;padding:16px 32px;border-radius:100px;border:1px solid transparent;overflow:hidden;z-index:1;transition:transform .4s var(--eo),color .4s var(--e),border-color .4s var(--e)}
+.btn:hover{transform:translateY(-2px)}
+.btn--p{background:var(--tx);color:#fff}
+.btn--p::before{content:'';position:absolute;inset:0;background:#3a352e;transform:translateY(101%);transition:transform .5s var(--eo);z-index:-1}
+.btn--p:hover::before{transform:translateY(0)}
+.btn--g{border-color:var(--ln)}
+.btn--g::before{content:'';position:absolute;inset:0;background:var(--tx);transform:translateY(101%);transition:transform .5s var(--eo);z-index:-1}
+.btn--g:hover{color:#fff;border-color:var(--tx)}
+.btn--g:hover::before{transform:translateY(0)}
+.btn svg{width:16px;height:16px;flex-shrink:0;transition:transform .4s var(--eo)}
+.btn:hover svg{transform:translateX(3px) translateY(-1px)}
+.btn .ar{transition:transform .4s var(--eo)}
+.btn:hover .ar{transform:translateX(4px)}
+
+.hero__m{position:relative;aspect-ratio:4/5;overflow:hidden;background:#eeeae2;will-change:transform}
+.hero__m::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(0,0,0,.2));pointer-events:none}
+.hero__m img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);animation:im 1.6s var(--eo) .25s forwards;transition:transform 1.6s var(--eo)}
+.hero__m:hover img{transform:scale(1.05)}
+@keyframes im{to{transform:scale(1)}}
+.hero__b{position:absolute;left:24px;bottom:24px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;z-index:2;padding-left:26px;opacity:0;animation:fu 1s var(--eo) 1.4s forwards}
+.hero__b::before{content:'';position:absolute;left:0;top:50%;width:16px;height:1px;background:#fff;transform:translateY(-50%)}
+
+/* MARQUEE */
+.mq{overflow:hidden;border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
+.mq__t{display:flex;animation:mq 42s linear infinite;will-change:transform}
+.mq__t:hover{animation-play-state:paused}
+.mq__i{flex-shrink:0;padding:24px 40px;font-family:'Playfair Display',serif;font-size:22px;color:var(--ts);font-style:italic;display:flex;align-items:center;gap:40px;white-space:nowrap}
+.mq__i::after{content:'';width:5px;height:5px;background:var(--ac);border-radius:50%}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:120px 0}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:64px;flex-wrap:wrap}
+.sh__l{max-width:640px}
+.sh h2{font-size:clamp(34px,4.4vw,54px);margin-top:22px}
+.sh h2 em{font-style:italic;color:var(--mu)}
+.sh>p{color:var(--mu);max-width:360px;font-size:15px;font-weight:300}
+
+/* GALLERY */
+.gl{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.gl__i{position:relative;overflow:hidden;background:#eeeae2;cursor:pointer}
+.gl__i:nth-child(1){grid-column:span 7;aspect-ratio:16/11}
+.gl__i:nth-child(2){grid-column:span 5;aspect-ratio:4/5}
+.gl__i:nth-child(3){grid-column:span 5;aspect-ratio:4/5}
+.gl__i:nth-child(4){grid-column:span 7;aspect-ratio:16/11}
+.gl__i:nth-child(5),.gl__i:nth-child(6),.gl__i:nth-child(7){grid-column:span 4;aspect-ratio:3/4}
+.gl__i:nth-child(8),.gl__i:nth-child(9){grid-column:span 6;aspect-ratio:3/2}
+.gl__i img{width:100%;height:100%;object-fit:cover;transform:scale(1.03);transition:transform 1.4s var(--eo)}
+.gl__i::before{content:'';position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.65));opacity:0;transition:opacity .55s var(--e);z-index:1}
+.gl__i:hover img{transform:scale(1.09)}
+.gl__i:hover::before{opacity:1}
+.gl__c{position:absolute;left:26px;right:26px;bottom:26px;z-index:2;color:#fff;transform:translateY(14px);opacity:0;transition:.6s var(--eo)}
+.gl__i:hover .gl__c{transform:none;opacity:1}
+.gl__c b{display:block;font:400 22px 'Playfair Display',serif;margin-bottom:4px}
+.gl__c span{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
+
+/* ABOUT */
+.ab__g{display:grid;grid-template-columns:.9fr 1fr;gap:100px;align-items:center}
+.ab__m{aspect-ratio:4/5;overflow:hidden;background:#eeeae2}
+.ab__m img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--eo)}
+.ab__m:hover img{transform:scale(1.05)}
+.ab__c h2{font-size:clamp(32px,3.8vw,46px);margin:22px 0 34px}
+.ab__c h2 em{font-style:italic;color:var(--mu)}
+.ab__c p{color:var(--ts);font-weight:300;margin-bottom:22px;max-width:560px}
+.ab__c p:first-of-type::first-letter{font-family:'Playfair Display',serif;font-size:56px;line-height:.9;float:left;margin:6px 14px 0 0}
+.ab__s{display:flex;gap:56px;margin-top:52px;padding-top:40px;border-top:1px solid var(--ln);flex-wrap:wrap}
+.ab__s b{display:block;font:400 44px 'Playfair Display',serif;line-height:1;margin-bottom:10px}
+.ab__s b small{font-size:22px;color:var(--mu)}
+.ab__s span{font-size:12.5px;color:var(--mu);letter-spacing:.05em}
+
+/* PROCESS */
+.pr{background:var(--sur);border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
+.pr__g{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ln)}
+.st{padding:52px 32px 52px 0;border-bottom:1px solid var(--ln);position:relative}
+.st+.st{padding-left:32px;border-left:1px solid var(--ln)}
+.st::before{content:'';position:absolute;left:0;top:0;width:0;height:1px;background:var(--tx);transition:width .8s var(--eo)}
+.st:hover::before{width:100%}
+.st__n{font-family:'Playfair Display',serif;font-size:14px;color:var(--ac);letter-spacing:.1em;margin-bottom:34px;display:block}
+.st h3{font-size:22px;margin-bottom:16px}
+.st p{color:var(--mu);font-size:14.5px;font-weight:300;line-height:1.75}
+
+/* SERVICES */
+.sv{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ln)}
+.sv__i{padding:56px 40px 56px 0;border-bottom:1px solid var(--ln);transition:padding-left .6s var(--eo)}
+.sv__i+.sv__i{padding-left:40px;border-left:1px solid var(--ln)}
+.sv__n{font-size:11.5px;letter-spacing:.24em;color:var(--mu);margin-bottom:34px}
+.sv__i h3{font-size:26px;margin-bottom:16px;transition:transform .5s var(--eo)}
+.sv__i:hover h3{transform:translateX(6px)}
+.sv__i>p{color:var(--mu);font-size:14.5px;font-weight:300;margin-bottom:32px;max-width:300px}
+.sv__p{font:400 22px 'Playfair Display',serif;display:flex;align-items:baseline;gap:10px}
+.sv__p small{font:400 12px 'Inter',sans-serif;color:var(--mu);letter-spacing:.06em}
+.sv__m{margin-top:24px;display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--ts);font-weight:300;list-style:none}
+.sv__m li{padding-left:18px;position:relative}
+.sv__m li::before{content:'—';position:absolute;left:0;color:var(--mu)}
+
+/* REVIEWS */
+.rw__g{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.rw{padding:44px 36px;background:var(--sur);border:1px solid var(--ln);transition:transform .6s var(--eo),box-shadow .6s var(--eo)}
+.rw:hover{transform:translateY(-4px);box-shadow:0 24px 60px -30px rgba(0,0,0,.14)}
+.rw__q{font:italic 400 20px/1.55 'Playfair Display',serif;margin-bottom:32px}
+.rw__a{padding-top:24px;border-top:1px solid var(--ln);display:flex;align-items:center;gap:14px}
+.rw__av{width:42px;height:42px;border-radius:50%;background:#e8e4dc;display:flex;align-items:center;justify-content:center;font:400 16px 'Playfair Display',serif;color:var(--ts);flex-shrink:0}
+.rw__a b{display:block;font-size:14px;font-weight:500;line-height:1.3}
+.rw__a span{font-size:12px;color:var(--mu)}
+
+/* CONTACT */
+.ct{text-align:center;padding:150px 0;background:var(--sur);border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);position:relative;overflow:hidden}
+.ct::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(184,152,120,.08),transparent 65%);pointer-events:none}
+.ct .c{position:relative;z-index:1}
+.ct h2{font-size:clamp(38px,5.6vw,72px);margin:26px auto 28px;max-width:780px}
+.ct h2 em{font-style:italic;color:var(--mu)}
+.ct__l{color:var(--mu);max-width:520px;margin:0 auto 52px;font-weight:300;font-size:16.5px}
+.ct__a{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
+.ct__m{display:flex;gap:56px;justify-content:center;flex-wrap:wrap;font-size:14px;color:var(--mu)}
+.ct__m a{border-bottom:1px solid transparent;transition:.35s var(--e)}
+.ct__m a:hover{color:var(--tx);border-bottom-color:var(--tx)}
+
+/* FOOTER */
+footer{padding:52px 0;font-size:13px;color:var(--mu)}
+.ft{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.ft__s{display:flex;gap:32px}
+.ft__s a{position:relative;transition:color .35s var(--e)}
+.ft__s a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--tx);transition:width .4s var(--eo)}
+.ft__s a:hover{color:var(--tx)}
+.ft__s a:hover::after{width:100%}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(18,17,15,.96);display:flex;align-items:center;justify-content:center;padding:48px;opacity:0;visibility:hidden;transition:opacity .4s var(--e),visibility .4s var(--e)}
+.lb.op{opacity:1;visibility:visible}
+.lb img{max-width:100%;max-height:88vh;object-fit:contain;transform:scale(.96);transition:transform .5s var(--eo)}
+.lb.op img{transform:scale(1)}
+.lb__x{position:absolute;top:30px;right:34px;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;color:#fff;font-size:20px;opacity:.7;display:flex;align-items:center;justify-content:center;transition:.35s var(--e)}
+.lb__x:hover{opacity:1;border-color:#fff;transform:rotate(90deg)}
+
+/* MOBILE MENU */
+.mm{position:fixed;top:76px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--ln);padding:24px 36px 40px;display:none;flex-direction:column;z-index:99;transform:translateY(-12px);opacity:0;transition:.4s var(--eo)}
+.mm.op{display:flex;transform:none;opacity:1}
+.mm a{padding:18px 0;font:400 22px 'Playfair Display',serif;border-bottom:1px solid var(--ln);transition:padding-left .4s var(--eo)}
+.mm a:hover{padding-left:8px}
+.mm a:last-child{border-bottom:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero__g{gap:52px}.ab__g{gap:56px}
+  .rw__g{grid-template-columns:1fr;gap:20px}
+  .pr__g{grid-template-columns:repeat(2,1fr)}
+  .st{padding:44px 24px 44px 0}.st+.st{padding-left:0;border-left:none}
+  .st:nth-child(2n){padding-left:24px;border-left:1px solid var(--ln)}
+}
+@media(max-width:860px){
+  .c,.nav__i{padding:0 22px}.mm{padding:24px 22px 40px}
+  .nav__u,.nav__c{display:none}.bg{display:flex}
+  .hero{padding:120px 0 60px}
+  .hero__g{grid-template-columns:1fr;gap:44px}
+  .hero__m{aspect-ratio:3/4;max-width:520px;margin:0 auto;width:100%}
+  section{padding:80px 0}
+  .sh{margin-bottom:44px;gap:24px}.sh>p{max-width:none}
+  .gl{gap:12px}
+  .gl__i:nth-child(n){grid-column:span 12;aspect-ratio:4/5}
+  .gl__i:nth-child(1),.gl__i:nth-child(4){aspect-ratio:3/4}
+  .gl__i:nth-child(8),.gl__i:nth-child(9){aspect-ratio:16/10}
+  .ab__g{grid-template-columns:1fr;gap:44px}
+  .ab__m{aspect-ratio:3/4;max-width:520px}
+  .ab__s{gap:34px;padding-top:32px;margin-top:36px}
+  .sv{grid-template-columns:1fr}
+  .sv__i{padding:40px 0}.sv__i+.sv__i{padding-left:0;border-left:none}
+  .ct{padding:90px 0}.ct__m{gap:20px}
+  .lb{padding:20px}.lb__x{top:16px;right:16px}
+}
+@media(max-width:560px){
+  .hero__a,.ct__a{width:100%;flex-direction:column}
+  .hero__a .btn,.ct__a .btn{width:100%;justify-content:center}
+  .ct__m{flex-direction:column;gap:12px}
+  .ab__c p:first-of-type::first-letter{font-size:44px}
+  .ab__s{gap:26px}.ab__s b{font-size:36px}
+  .pr__g{grid-template-columns:1fr}
+  .st{padding:36px 0}.st:nth-child(2n){padding-left:0;border-left:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav__i">
+    <a href="#top" class="nav__l">Анна <span>Соколова</span></a>
+    <ul class="nav__u">
+      <li><a href="#portfolio">Портфолио</a></li>
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#process">Процесс</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <a href="https://t.me/test" target="_blank" rel="noopener" class="nav__c">Записаться</a>
+    <button class="bg" id="bg" aria-label="Меню"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mm" id="mm">
+  <a href="#portfolio">Портфолио</a>
+  <a href="#about">Обо мне</a>
+  <a href="#process">Как проходит съёмка</a>
+  <a href="#services">Услуги</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#contact">Контакты</a>
+  <a href="https://t.me/test" target="_blank" rel="noopener">Записаться →</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="c">
+    <div class="hero__g">
+      <div>
+        <p class="eb">Портретный и семейный фотограф</p>
+        <h1 class="hero__t">
+          <span class="ln"><span>Анна Соколова —</span></span>
+          <span class="ln"><span><em>фотограф, который видит вас</em></span></span>
+        </h1>
+        <p class="hero__x">Снимаю портреты и семейные истории с 2018 года. Умею разговорить даже тех, кто «совсем не умеет позировать», и поймать тот самый кадр, где вы — настоящие. Без лишнего: только вы, естественный свет и живые эмоции.</p>
+        <div class="hero__a">
+          <a href="https://t.me/test" target="_blank" rel="noopener" class="btn btn--p">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.8 19c-.2 1-.8 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.4-4.8 8.7-7.9c.4-.3-.1-.5-.6-.2L7.1 12.6l-4.6-1.4c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.5.2 1.3 1.5Z"/></svg>
+            Записаться на съёмку
+          </a>
+          <a href="#portfolio" class="btn btn--g">Смотреть работы <span class="ar">→</span></a>
+        </div>
+      </div>
+      <div class="hero__m" id="hm">
+        <img src="assets/image1.jpg" alt="Портретная съёмка — Анна Соколова">
+        <div class="hero__b">Москва · выезд по России</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mq" aria-hidden="true">
+  <div class="mq__t">
+    <div class="mq__i">Портреты</div><div class="mq__i">Семьи</div><div class="mq__i">Love story</div><div class="mq__i">Дети</div><div class="mq__i">Естественный свет</div><div class="mq__i">Искренние эмоции</div>
+    <div class="mq__i">Портреты</div><div class="mq__i">Семьи</div><div class="mq__i">Love story</div><div class="mq__i">Дети</div><div class="mq__i">Естественный свет</div><div class="mq__i">Искренние эмоции</div>
+  </div>
+</div>
+
+<section id="portfolio">
+  <div class="c">
+    <div class="sh rv">
+      <div class="sh__l">
+        <p class="eb">Портфолио</p>
+        <h2>Избранные <em>работы</em></h2>
+      </div>
+      <p>Небольшая подборка кадров, которые лучше всего передают мой стиль. Каждая фотография — отдельная история, за которой стоит человек, момент и очень много естественного света.</p>
+    </div>
+    <div class="gl" id="gl">
+      <div class="gl__i rv"><img src="https://picsum.photos/seed/photo1/1200/850" alt="Портретная съёмка"><div class="gl__c"><b>Портрет в студии</b><span>Портретная съёмка</span></div></div>
+      <div class="gl__i rv"><img src="https://picsum.photos/seed/photo2/900/1150" alt="Семейная съёмка"><div class="gl__c"><b>Утро в парке</b><span>Семейная съёмка</span></div></div>
+      <div class="gl__i rv"><img src="https://picsum.photos/seed/photo3/900/1150" alt="Портретная съёмка"><div class="gl__c"><b>Тихий свет</b><span>Портретная съёмка</span></div></div>
+      <div class="gl__i rv"><img src="https://picsum.photos/seed/photo4/1200/850" alt="Love story"><div class="gl__c"><b>Двое</b><span>Love story</span></div></div>
+      <div class="gl__i rv"><img src="https://picsum.photos/seed/photo5/900/1200" alt="Детская съёмка"><div class="gl__c"><b>Маленькие руки</b><span>Детская съёмка</span></div></div>
+      <div class="gl__i rv"><img src="https://picsum.photos/seed/photo6/900/1200" alt="Портретная съёмка"><div class="gl__c"><b>Взгляд</b><span>Портретная съёмка</span></div></div>
+      <div class="gl__i rv"><img src="https://picsum.photos/seed/photo7/900/1200" alt="Семейная съёмка"><div class="gl__c"><b>Три поколения</b><span>Семейная съёмка</span></div></div>
+      <div class="gl__i rv"><img src="https://picsum.photos/seed/photo8/1400/950" alt="Семейная съёмка"><div class="gl__c"><b>Летний вечер</b><span>Семейная съёмка</span></div></div>
+      <div class="gl__i rv"><img src="https://picsum.photos/seed/photo9/1400/950" alt="Love story"><div class="gl__c"><b>Перед свадьбой</b><span>Love story</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="c">
+    <div class="ab__g">
+      <div class="ab__m rv"><img src="https://picsum.photos/seed/anna-photographer/900/1150" alt="Анна Соколова — фотограф"></div>
+      <div class="ab__c rv">
+        <p class="eb">Обо мне</p>
+        <h2>Фотография для меня — <em>это про людей</em></h2>
+        <p>Меня зовут Анна, и уже более семи лет я снимаю портреты и семейные истории. За это время через мою камеру прошло больше четырёхсот съёмок — от тихих утренних портретов в студии до больших семейных прогулок в лесу.</p>
+        <p>Мне важно, чтобы на фотографиях вы узнавали себя — настоящих, а не позирующих по команде. Вместо кадров ради кадров — мягкий свет, живое общение и внимание к деталям: взгляду, движению, объятиям, случайной улыбке.</p>
+        <p>Перед съёмкой мы обязательно созвонимся: обсудим идею, подберём локацию и образ, я подскажу, что надеть. В день съёмки вам не нужно ничего придумывать — я всё подскажу и направлю.</p>
+        <div class="ab__s">
+          <div><b><span data-c="7">7</span><small>+</small></b><span>лет практики</span></div>
+          <div><b><span data-c="400">400</span><small>+</small></b><span>съёмок</span></div>
+          <div><b><span data-c="100">100</span><small>%</small></b><span>естественного света</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pr" id="process">
+  <div class="c">
+    <div class="sh rv">
+      <div class="sh__l">
+        <p class="eb">Процесс</p>
+        <h2>Как проходит <em>съёмка</em></h2>
+      </div>
+      <p>Всё просто и без стресса: от первого сообщения до готовых кадров — обычно не больше двух недель.</p>
+    </div>
+    <div class="pr__g">
+      <div class="st rv"><span class="st__n">01 — Знакомство</span><h3>Обсуждаем идею</h3><p>Вы пишете мне в Telegram, мы коротко обсуждаем повод, формат, дату и бюджет. Я отвечаю на все вопросы и подсказываю подходящий формат.</p></div>
+      <div class="st rv"><span class="st__n">02 — Подготовка</span><h3>Собираем образ</h3><p>Подбираем локацию и время (обычно — золотой час), я присылаю гайд с подсказками по одежде и макияжу. При необходимости помогаю с арендой студии.</p></div>
+      <div class="st rv"><span class="st__n">03 — Съёмка</span><h3>Живём моментом</h3><p>В день съёмки вам не нужно ничего придумывать — я направляю и создаю атмосферу, в которой вы расслабляетесь. Длится обычно от полутора до двух часов.</p></div>
+      <div class="st rv"><span class="st__n">04 — Результат</span><h3>Отдаю готовые кадры</h3><p>В течение 7–10 дней присылаю галерею с обработанными фотографиями в высоком разрешении. Печать и дополнительная ретушь — по запросу.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="c">
+    <div class="sh rv">
+      <div class="sh__l">
+        <p class="eb">Услуги</p>
+        <h2>Форматы <em>съёмок</em></h2>
+      </div>
+      <p>Каждая съёмка включает подбор локации, помощь с образами, гайд по подготовке и обработку всех отобранных кадров.</p>
+    </div>
+    <div class="sv">
+      <div class="sv__i rv">
+        <div class="sv__n">01</div>
+        <h3>Портретная съёмка</h3>
+        <p>Индивидуальная съёмка в студии или на природе. Помогу раскрыться, даже если вы никогда не позировали.</p>
+        <div class="sv__p">от 8 000 ₽ <small>· 1,5 часа</small></div>
+        <ul class="sv__m"><li>2 образа, до 40 кадров</li><li>Студия или outdoor</li><li>Готовность 7 дней</li></ul>
+      </div>
+      <div class="sv__i rv">
+        <div class="sv__n">02</div>
+        <h3>Семейная съёмка</h3>
+        <p>Тёплые кадры для всей семьи — с детьми, родителями, бабушками и дедушками. В удобном месте.</p>
+        <div class="sv__p">от 12 000 ₽ <small>· 2 часа</small></div>
+        <ul class="sv__m"><li>До 6 человек в кадре</li><li>Съёмка в 2 локациях</li><li>До 60 обработанных кадров</li></ul>
+      </div>
+      <div class="sv__i rv">
+        <div class="sv__n">03</div>
+        <h3>Love story</h3>
+        <p>Съёмка для пар — нежная, живая, без наигранности. Отличный вариант перед свадьбой или на годовщину.</p>
+        <div class="sv__p">от 10 000 ₽ <small>· 2 часа</small></div>
+        <ul class="sv__m"><li>Помощь с локацией и образами</li><li>Съёмка на закате</li><li>До 50 обработанных кадров</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="background:var(--bg)">
+  <div class="c">
+    <div class="sh rv">
+      <div class="sh__l">
+        <p class="eb">Отзывы</p>
+        <h2>Что говорят <em>клиенты</em></h2>
+      </div>
+      <p>Самое ценное в моей работе — когда спустя годы люди возвращаются за новыми кадрами и приносят мне своих детей.</p>
+    </div>
+    <div class="rw__g">
+      <div class="rw rv">
+        <p class="rw__q">«Я ужасно стесняюсь камеры, но на съёмке с Анной впервые забыла, что меня фотографируют. Получились самые живые фотографии в моей жизни»</p>
+        <div class="rw__a"><div class="rw__av">М</div><div><b>Мария К.</b><span>Портретная съёмка</span></div></div>
+      </div>
+      <div class="rw rv">
+        <p class="rw__q">«Мы пришли с двумя детьми и собакой — казалось, это хаос. Но Анна спокойно всё организовала, и фотографии получились именно такими, как мы мечтали»</p>
+        <div class="rw__a"><div class="rw__av">И</div><div><b>Ирина и Дмитрий</b><span>Семейная съёмка</span></div></div>
+      </div>
+      <div class="rw rv">
+        <p class="rw__q">«Снимали love story за месяц до свадьбы. Анна подсказала локацию, время, помогла с образами. Фотографии используем до сих пор»</p>
+        <div class="rw__a"><div class="rw__av">А</div><div><b>Аня и Кирилл</b><span>Love story</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ct" id="contact">
+  <div class="c">
+    <p class="eb" style="justify-content:center">Контакты</p>
+    <h2>Давайте создадим <em>что-то красивое</em></h2>
+    <p class="ct__l">Напишите мне в Telegram — обсудим идею, дату и место съёмки. Отвечаю в течение дня, обычно быстрее.</p>
+    <div class="ct__a">
+      <a href="https://t.me/test" target="_blank" rel="noopener" class="btn btn--p">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.8 19c-.2 1-.8 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.4-4.8 8.7-7.9c.4-.3-.1-.5-.6-.2L7.1 12.6l-4.6-1.4c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.5.2 1.3 1.5Z"/></svg>
+        Написать в Telegram
+      </a>
+      <a href="mailto:test@gmail.com" class="btn btn--g">Написать на почту <span class="ar">→</span></a>
+    </div>
+    <div class="ct__m">
+      <a href="https://t.me/test" target="_blank" rel="noopener">Telegram · @test</a>
+      <a href="mailto:test@gmail.com">test@gmail.com</a>
+      <span>Москва · выезд по России</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="c ft">
+    <div>© 2025 Анна Соколова. Все права защищены.</div>
+    <div class="ft__s">
+      <a href="https://t.me/test" target="_blank" rel="noopener">Telegram</a>
+      <a href="mailto:test@gmail.com">Email</a>
+      <a href="#top">Наверх ↑</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb">
+  <button class="lb__x" id="lbx" aria-label="Закрыть">✕</button>
+  <img src="" alt="" id="lbi">
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var $=function(s){return document.querySelector(s)}, $$=function(s){return document.querySelectorAll(s)};
+
+  /* NAV — скрытие при скролле вниз */
+  var nav=$('#nav'), ly=window.scrollY, raf=null;
+  function navUpdate(){
+    var y=window.scrollY;
+    nav.classList.toggle('sc',y>10);
+    if(y>260&&y>ly+6) nav.classList.add('hd');
+    else if(y<ly-6||y<120) nav.classList.remove('hd');
+    ly=y; raf=null;
+  }
+  window.addEventListener('scroll',function(){if(!raf) raf=requestAnimationFrame(navUpdate)},{passive:true});
+
+  /* MOBILE MENU */
+  var bg=$('#bg'), mm=$('#mm');
+  bg.addEventListener('click',function(){mm.classList.toggle('op');bg.classList.toggle('op')});
+  [].forEach.call(mm.querySelectorAll('a'),function(a){
+    a.addEventListener('click',function(){mm.classList.remove('op');bg.classList.remove('op')});
+  });
+
+  /* LIGHTBOX */
+  var lb=$('#lb'), lbi=$('#lbi');
+  [].forEach.call($$('#gl .gl__i'),function(it){
+    it.addEventListener('click',function(){
+      var img=it.querySelector('img');
+      lbi.src=img.src; lbi.alt=img.alt||'Фото';
+      lb.classList.add('op');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeLb(){lb.classList.remove('op');document.body.style.overflow=''}
+  $('#lbx').addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+
+  /* PARALLAX hero */
+  var hm=$('#hm'), pr=null;
+  window.addEventListener('scroll',function(){
+    if(pr) return;
+    pr=requestAnimationFrame(function(){
+      var y=window.scrollY;
+      if(y<window.innerHeight*1.2) hm.style.transform='translateY('+(y*0.06)+'px)';
+      pr=null;
+    });
+  },{passive:true});
+
+  /* COUNTERS — просто на случай, если цифры не сразу 100% */
+  var cs=$$('[data-c]');
+  if('IntersectionObserver' in window && cs.length){
+    var ci=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var el=en.target, t=+el.dataset.c, st=performance.now(), d=1400;
+        function tick(now){
+          var p=Math.min((now-st)/d,1), ea=1-Math.pow(1-p,3);
+          el.textContent=Math.round(t*ea);
+          if(p<1) requestAnimationFrame(tick); else el.textContent=t;
+        }
+        requestAnimationFrame(tick);
+        ci.unobserve(el);
+      });
+    },{threshold:0.4});
+    [].forEach.call(cs,function(c){ci.observe(c)});
+  }
+})();
+</script>
+</body>
+</html>
