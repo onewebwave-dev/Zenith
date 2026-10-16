@@ -2,6 +2,8 @@ backend:
   name: github
   repo: onewebwave-dev/Zenith
   branch: main
+  base_url: https://zenith-flame-zeta.vercel.app
+  auth_endpoint: api/auth
 
 media_folder: "assets"
 public_folder: "/assets"
