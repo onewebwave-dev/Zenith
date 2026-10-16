@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Тарифы Zenith — BASE, PREMIUM, ELITE | От 2 990 ₽</title>
-<meta name="description" content="Готовые тарифы Zenith: BASE от 2 990 ₽, PREMIUM от 5 990 ₽, ELITE от 9 990 ₽. Два варианта: frontend и frontend + backend. Без обязательной предоплаты.">
+<meta name="description" content="Готовые тарифы Zenith: BASE, PREMIUM, ELITE. Два варианта: frontend и frontend + backend. Без обязательной предоплаты.">
 <meta name="theme-color" content="#101014">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://zenith.example/offers.html">
+<link rel="canonical" href="https://zenithtop.netlify.app/offers.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Zenith">
 <meta property="og:title" content="Тарифы Zenith — BASE, PREMIUM, ELITE">
 <meta property="og:description" content="Готовые тарифы с двойными ценами: frontend и frontend + backend.">
-<meta property="og:url" content="https://zenith.example/offers.html">
+<meta property="og:url" content="https://zenithtop.netlify.app/offers.html">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101014'/%3E%3Cpath d='M16 16H48V24L30 40H48V48H16V40L34 24H16Z' fill='%23CDFF4F'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101014'/%3E%3Cpath d='M16 16H48V24L30 40H48V48H16V40L34 24H16Z' fill='%23CDFF4F'/%3E%3C/svg%3E">
@@ -46,8 +46,6 @@ button{font-family:inherit;color:inherit}
 .h2{font-size:clamp(30px,4.3vw,58px);font-weight:800;letter-spacing:-.03em;margin-bottom:20px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(16,16,20,.6);margin-bottom:22px}
 .eyebrow::before{content:'';width:9px;height:9px;background:var(--lime);border:2px solid var(--ink);transform:rotate(45deg);flex:none}
-.eyebrow--light{color:rgba(244,241,233,.72)}
-.eyebrow--light::before{background:var(--lime);border-color:var(--lime)}
 .section-head{max-width:760px;margin-bottom:clamp(36px,5vw,64px)}
 .section-sub{font-size:clamp(16px,1.35vw,19px);color:rgba(16,16,20,.66);max-width:60ch}
 .hl{display:inline-block;background:var(--lime);padding:0 .16em;transform:rotate(-1.4deg);border-radius:4px}
@@ -67,8 +65,6 @@ button{font-family:inherit;color:inherit}
 .btn--ghost{--btn-bg:transparent}
 .btn--ghost:hover{--btn-bg:var(--milk-2)}
 .btn--dark{--btn-bg:var(--ink);--btn-fg:var(--milk);--btn-shadow:var(--violet)}
-.btn--violet{--btn-bg:var(--violet);--btn-fg:var(--milk);--btn-shadow:var(--ink)}
-.btn--violet:hover{--btn-bg:#4A2CDB}
 .btn--sm{padding:11px 20px;font-size:14.5px;box-shadow:4px 4px 0 var(--btn-shadow)}
 .btn-arrow{transition:transform .22s}
 .btn:hover .btn-arrow{transform:translateX(4px)}
@@ -96,7 +92,6 @@ button{font-family:inherit;color:inherit}
 .burger[aria-expanded="true"] .burger-lines i:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] .burger-lines i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-/* PAGE HERO */
 .page-hero{position:relative;padding:clamp(48px,6vw,88px) 0 clamp(36px,4vw,56px);overflow:hidden}
 .page-hero::before{content:'';position:absolute;top:-160px;right:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(91,61,245,.12),transparent 68%);pointer-events:none}
 .page-hero-inner{position:relative;max-width:900px}
@@ -106,7 +101,6 @@ button{font-family:inherit;color:inherit}
 .page-hero-facts li{display:flex;align-items:center;gap:9px}
 .page-hero-facts li::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--violet);flex:none}
 
-/* PLANS */
 .plans-section{padding:clamp(40px,5vw,80px) 0 clamp(64px,8vw,120px)}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
 .plan{
@@ -158,7 +152,6 @@ button{font-family:inherit;color:inherit}
 .plan .btn{width:100%;margin-top:auto}
 .plan--featured .btn{--btn-bg:var(--lime);--btn-fg:var(--ink);--btn-shadow:var(--milk)}
 
-/* COMPARE */
 .compare-section{background:var(--milk-2);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:clamp(56px,7vw,96px) 0}
 .compare-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:18px;background:var(--milk)}
 .compare-table{width:100%;min-width:820px;border-collapse:collapse;font-size:15px}
@@ -171,7 +164,6 @@ button{font-family:inherit;color:inherit}
 .compare-table td.is-no{color:rgba(16,16,20,.4);font-weight:600}
 .compare-table td.is-yes::before{content:'✓ ';color:var(--violet);font-weight:800}
 
-/* HOW */
 .how-section{padding:clamp(56px,7vw,96px) 0}
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .how-card{padding:28px 26px;border:2px solid var(--ink);border-radius:16px;background:var(--milk-2);transition:transform .3s,box-shadow .3s}
@@ -180,7 +172,6 @@ button{font-family:inherit;color:inherit}
 .how-card p{font-size:15px;color:rgba(16,16,20,.75);margin:0}
 .how-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--lime);border:2px solid var(--ink);font-family:var(--display);font-weight:800;font-size:14px;margin-bottom:14px}
 
-/* NOTES */
 .notes-section{padding:clamp(48px,6vw,88px) 0}
 .notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .note-block{padding:28px 26px;border:2px solid var(--ink);border-radius:16px;background:var(--milk-2)}
@@ -190,7 +181,6 @@ button{font-family:inherit;color:inherit}
 .note-block li{position:relative;padding-left:22px;font-size:15px;line-height:1.5;color:rgba(16,16,20,.8)}
 .note-block li::before{content:'';position:absolute;left:0;top:9px;width:10px;height:10px;background:var(--lime);border:2px solid var(--ink);border-radius:3px;transform:rotate(45deg)}
 
-/* CTA */
 .cta{background:var(--lime);border-top:2px solid var(--ink);padding:clamp(64px,8vw,116px) 0;position:relative;overflow:hidden}
 .cta::before{content:'';position:absolute;right:-90px;top:-90px;width:300px;height:300px;border:2px solid rgba(16,16,20,.22);border-radius:50%;pointer-events:none}
 .cta::after{content:'';position:absolute;left:-60px;bottom:-60px;width:180px;height:180px;background:var(--violet);opacity:.16;border-radius:38% 62% 55% 45%/45% 40% 60% 55%;pointer-events:none}
@@ -199,7 +189,6 @@ button{font-family:inherit;color:inherit}
 .cta p{font-size:clamp(16px,1.4vw,19px);color:rgba(16,16,20,.78);max-width:56ch;margin-bottom:36px}
 .cta-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
 
-/* FOOTER */
 .site-footer{background:var(--ink);color:var(--milk);padding:clamp(52px,6vw,84px) 0 30px}
 .footer-grid{display:grid;grid-template-columns:1.4fr .8fr 1fr;gap:clamp(28px,4vw,64px);padding-bottom:clamp(36px,4vw,56px);border-bottom:2px solid var(--line-light)}
 .logo--light{color:var(--milk);margin-bottom:18px}
@@ -298,90 +287,8 @@ button{font-family:inherit;color:inherit}
 
 <section class="plans-section">
   <div class="wrap">
-    <div class="plans">
-
-      <article class="plan reveal">
-        <div class="plan-head">
-          <p class="plan-name">Base</p>
-          <p class="plan-tagline">Небольшой аккуратный сайт: лендинг, визитка, портфолио.</p>
-        </div>
-        <div class="plan-prices">
-          <div class="plan-price-item">
-            <span class="plan-price-label">Frontend</span>
-            <span class="plan-price-value">2 990 ₽</span>
-          </div>
-          <div class="plan-price-item">
-            <span class="plan-price-label">Frontend + Backend</span>
-            <span class="plan-price-value">5 490 ₽</span>
-          </div>
-        </div>
-        <p class="plan-time">Ориентировочный срок: 1–2 дня</p>
-        <ul class="plan-list">
-          <li>Одностраничный сайт</li>
-          <li>Индивидуальный дизайн</li>
-          <li>Основные информационные блоки</li>
-          <li>Адаптация под телефон и компьютер</li>
-          <li>Базовые анимации</li>
-          <li>Базовая SEO-подготовка</li>
-        </ul>
-        <a class="btn" href="index.html#contact-form">Заказать BASE</a>
-      </article>
-
-      <article class="plan plan--featured reveal" style="--d:.06s">
-        <span class="plan-badge">Популярный выбор</span>
-        <div class="plan-head">
-          <p class="plan-name">Premium</p>
-          <p class="plan-tagline">Сайт на 2–5 страниц с продуманной структурой и анимациями.</p>
-        </div>
-        <div class="plan-prices">
-          <div class="plan-price-item">
-            <span class="plan-price-label">Frontend</span>
-            <span class="plan-price-value">5 990 ₽</span>
-          </div>
-          <div class="plan-price-item">
-            <span class="plan-price-label">Frontend + Backend</span>
-            <span class="plan-price-value">8 990 ₽</span>
-          </div>
-        </div>
-        <p class="plan-time">Ориентировочный срок: 2–4 дня</p>
-        <ul class="plan-list">
-          <li>Сайт на 2–5 страниц</li>
-          <li>Единый визуальный стиль</li>
-          <li>Удобная навигация</li>
-          <li>Продвинутые анимации</li>
-          <li>SEO-подготовка страниц</li>
-          <li>Форма заявки с уведомлениями</li>
-        </ul>
-        <a class="btn" href="index.html#contact-form">Заказать PREMIUM</a>
-      </article>
-
-      <article class="plan reveal" style="--d:.12s">
-        <div class="plan-head">
-          <p class="plan-name">Elite</p>
-          <p class="plan-tagline">Расширенный сайт с индивидуальным дизайном и сложной структурой.</p>
-        </div>
-        <div class="plan-prices">
-          <div class="plan-price-item">
-            <span class="plan-price-label">Frontend</span>
-            <span class="plan-price-value">9 990 ₽</span>
-          </div>
-          <div class="plan-price-item">
-            <span class="plan-price-label">Frontend + Backend</span>
-            <span class="plan-price-value">12 990 ₽</span>
-          </div>
-        </div>
-        <p class="plan-time">Ориентировочный срок: 3–5 дней</p>
-        <ul class="plan-list">
-          <li>Сайт на 4–6 страниц</li>
-          <li>Расширенная структура</li>
-          <li>Индивидуальный дизайн</li>
-          <li>Сложные анимации и интерактив</li>
-          <li>Расширенная SEO-подготовка</li>
-          <li>Backend: формы, CMS, интеграции</li>
-        </ul>
-        <a class="btn" href="index.html#contact-form">Заказать ELITE</a>
-      </article>
-
+    <div class="plans" id="plansContainer">
+      <!-- Планы рендерятся из data/tariffs.json -->
     </div>
   </div>
 </section>
@@ -555,6 +462,103 @@ button{font-family:inherit;color:inherit}
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-in'); });
   }
+
+  /* ---------- Рендер тарифов из data/tariffs.json ---------- */
+  var FALLBACK = {
+    base: {
+      name: "Base",
+      tagline: "Небольшой аккуратный сайт: лендинг, визитка, портфолио.",
+      price_frontend: 2990,
+      price_backend: 5490,
+      time: "Ориентировочный срок: 1–2 дня",
+      features: [
+        "Одностраничный сайт","Индивидуальный дизайн","Основные информационные блоки",
+        "Адаптация под телефон и компьютер","Базовые анимации","Базовая SEO-подготовка"
+      ]
+    },
+    premium: {
+      name: "Premium",
+      tagline: "Сайт на 2–5 страниц с продуманной структурой и анимациями.",
+      price_frontend: 5990,
+      price_backend: 8990,
+      time: "Ориентировочный срок: 2–4 дня",
+      features: [
+        "Сайт на 2–5 страниц","Единый визуальный стиль","Удобная навигация",
+        "Продвинутые анимации","SEO-подготовка страниц","Форма заявки с уведомлениями"
+      ]
+    },
+    elite: {
+      name: "Elite",
+      tagline: "Расширенный сайт с индивидуальным дизайном и сложной структурой.",
+      price_frontend: 9990,
+      price_backend: 12990,
+      time: "Ориентировочный срок: 3–5 дней",
+      features: [
+        "Сайт на 4–6 страниц","Расширенная структура","Индивидуальный дизайн",
+        "Сложные анимации и интерактив","Расширенная SEO-подготовка","Backend: формы, CMS, интеграции"
+      ]
+    }
+  };
+
+  function formatRub(n) { return Number(n).toLocaleString('ru-RU').replace(/\u00A0/g, ' ') + ' ₽'; }
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    });
+  }
+
+  function renderPlans(data) {
+    var container = doc.getElementById('plansContainer');
+    if (!container) return;
+    var order = ['base', 'premium', 'elite'];
+    var html = '';
+    order.forEach(function (key, idx) {
+      var t = data[key] || FALLBACK[key];
+      if (!t) return;
+      var isFeatured = key === 'premium';
+      var delay = idx === 0 ? '' : (idx === 1 ? ' style="--d:.06s"' : ' style="--d:.12s"');
+      html += '<article class="plan' + (isFeatured ? ' plan--featured' : '') + ' reveal"' + delay + '>';
+      if (isFeatured) html += '<span class="plan-badge">Популярный выбор</span>';
+      html += '<div class="plan-head">';
+      html += '<p class="plan-name">' + escapeHtml(t.name || key) + '</p>';
+      html += '<p class="plan-tagline">' + escapeHtml(t.tagline || '') + '</p>';
+      html += '</div>';
+      html += '<div class="plan-prices">';
+      html += '<div class="plan-price-item"><span class="plan-price-label">Frontend</span><span class="plan-price-value">' + formatRub(t.price_frontend) + '</span></div>';
+      html += '<div class="plan-price-item"><span class="plan-price-label">Frontend + Backend</span><span class="plan-price-value">' + formatRub(t.price_backend) + '</span></div>';
+      html += '</div>';
+      html += '<p class="plan-time">' + escapeHtml(t.time || '') + '</p>';
+      html += '<ul class="plan-list">';
+      (t.features || []).forEach(function (f) {
+        var text = typeof f === 'string' ? f : (f && (f.item || f.label || f)) || '';
+        html += '<li>' + escapeHtml(text) + '</li>';
+      });
+      html += '</ul>';
+      var btnLabel = 'Заказать ' + String(t.name || key).toUpperCase();
+      html += '<a class="btn" href="index.html#contact-form">' + escapeHtml(btnLabel) + '</a>';
+      html += '</article>';
+    });
+    container.innerHTML = html;
+
+    // Перезапускаем reveal для новых элементов
+    var newReveals = Array.prototype.slice.call(container.querySelectorAll('.reveal'));
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('is-in'); io2.unobserve(entry.target); }
+        });
+      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+      newReveals.forEach(function (el) { io2.observe(el); });
+    } else {
+      newReveals.forEach(function (el) { el.classList.add('is-in'); });
+    }
+  }
+
+  fetch('data/tariffs.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(renderPlans)
+    .catch(function () { renderPlans(FALLBACK); });
+
 })();
 </script>
 
