@@ -105,6 +105,8 @@ button{font-family:inherit;color:inherit}
 .btn--dark{--btn-bg:var(--ink);--btn-fg:var(--milk);--btn-shadow:var(--violet)}
 .btn--violet{--btn-bg:linear-gradient(120deg,var(--violet) 0%,var(--pink) 100%);--btn-fg:#fff;--btn-shadow:var(--ink)}
 .btn--violet:hover{--btn-bg:linear-gradient(120deg,var(--violet-2) 0%,#E6308A 100%)}
+.yandex-form-card{border:2px solid var(--ink);border-radius:var(--radius);background:var(--milk);box-shadow:8px 8px 0 var(--ink);padding:clamp(16px,3vw,32px);overflow:hidden}
+.yandex-form-card iframe{display:block;border:0;background:transparent}
 .btn--telegram{--btn-bg:#229ED9;--btn-fg:#fff;--btn-shadow:var(--ink);border-color:var(--ink)}
 .btn--telegram:hover{--btn-bg:#1a8ac0;--btn-fg:#fff}
 .btn--telegram .tg-icon{display:inline-block;vertical-align:middle}
@@ -1159,7 +1161,7 @@ button{font-family:inherit;color:inherit}
       <h2 class="h2">Расскажите о проекте</h2>
       <p class="section-sub">Заполните форму — отвечу в течение дня.</p>
     </header>
-    <div class="reveal">
+    <div class="reveal yandex-form-card">
       <script src="https://forms.yandex.ru/_static/embed.js"></script>
       <iframe src="https://forms.yandex.ru/u/6ad3785d49af47b9b7b7c951?iframe=1" frameborder="0" name="ya-form-6ad3785d49af47b9b7b7c951" width="100%"></iframe>
     </div>
