@@ -859,7 +859,7 @@ button{font-family:inherit;color:inherit}
         <span class="tariff-banner-icon" aria-hidden="true">₽</span>
         <span class="tariff-banner-text">
           <span class="tariff-banner-label">Тарифы</span>
-          <span class="tariff-banner-title" id="tariffBannerPrice">Соберите свой тариф · от 2 990 ₽</span>
+          <span class="tariff-banner-title">Соберите свой тариф · от 2 990 ₽</span>
         </span>
         <span class="tariff-banner-arrow" aria-hidden="true">→</span>
       </a>
@@ -1387,7 +1387,7 @@ button{font-family:inherit;color:inherit}
 
 <div class="cookie-banner" id="cookieBanner" hidden>
   <div class="cookie-inner">
-    <p>Мы используем аналитику PostHog, чтобы понимать, какие материалы полезнее: это cookie, IP и данные об устройстве. Аналитика запускается только после вашего согласия. <a href="privacy.html" target="_blank" rel="noopener">Подробнее</a>.</p>
+    <p>Мы используем Яндекс Метрику, чтобы понимать, какие материалы полезнее: это cookie, IP и данные об устройстве. Аналитика запускается только после вашего согласия. <a href="privacy.html" target="_blank" rel="noopener">Подробнее</a>.</p>
     <button class="btn btn--sm" type="button" id="cookieAccept">Принять</button>
   </div>
 </div>
@@ -1659,32 +1659,25 @@ button{font-family:inherit;color:inherit}
 
   /* 4. Tariffs — обновляем select в форме + (опционально) заголовок баннера */
   function applyTariffs(tariffs) {
-  if (!tariffs) return;
-  DATA.tariffs = tariffs;
+    if (!tariffs) return;
+    DATA.tariffs = tariffs;
 
-  // 1) Обновляем бейдж "Соберите свой тариф · от X ₽" (независимо от select)
-  var bannerTitle = doc.getElementById('tariffBannerPrice');
-  if (bannerTitle && tariffs.base && tariffs.base.price_frontend) {
-    bannerTitle.textContent = 'Соберите свой тариф · от ' + formatRub(tariffs.base.price_frontend);
-  }
-
-  // 2) Обновляем опции в селекте формы
-  var select = doc.getElementById('tariffSelect');
-  if (!select) return;
-  var map = [['base','BASE'], ['premium','PREMIUM'], ['elite','ELITE']];
-  map.forEach(function (pair) {
-    var key = pair[0], label = pair[1];
-    var t = tariffs[key];
-    if (!t || !t.price_frontend) return;
-    var optVal = label + ' — ' + formatRub(t.price_frontend);
-    Array.prototype.forEach.call(select.options, function (opt) {
-      if (opt.value.indexOf(label) === 0) {
-        opt.value = optVal;
-        opt.textContent = optVal;
-      }
+    var select = doc.getElementById('tariffSelect');
+    if (!select) return;
+    var map = [['base','BASE'], ['premium','PREMIUM'], ['elite','ELITE']];
+    map.forEach(function (pair) {
+      var key = pair[0], label = pair[1];
+      var t = tariffs[key];
+      if (!t || !t.price_frontend) return;
+      var optVal = label + ' — ' + formatRub(t.price_frontend);
+      Array.prototype.forEach.call(select.options, function (opt) {
+        if (opt.value.indexOf(label) === 0) {
+          opt.value = optVal;
+          opt.textContent = optVal;
+        }
+      });
     });
-  });
-}
+  }
 
   /* ============================================================
      ЗАГРУЗКА JSON
@@ -2208,34 +2201,45 @@ button{font-family:inherit;color:inherit}
     });
   }
 
-  /* ---------- Cookie + PostHog ---------- */
+  /* ---------- Cookie + Яндекс Метрика (только после согласия) ---------- */
   var COOKIE_KEY = 'zenith_cookie_consent';
+  var YM_COUNTER_ID = 113658787; // счётчик Яндекс Метрики
   var banner = doc.getElementById('cookieBanner');
   var acceptBtn = doc.getElementById('cookieAccept');
-  var posthogLoaded = false;
+  var metrikaLoaded = false;
+
   function hasConsent() {
     try { if (localStorage.getItem(COOKIE_KEY) === 'accepted') return true; } catch (e) {}
-    if (document.cookie.indexOf(COOKIE_KEY + '=accepted') !== -1) return true;
-    return false;
+    return document.cookie.indexOf(COOKIE_KEY + '=accepted') !== -1;
   }
+
   function saveConsent() {
     try { localStorage.setItem(COOKIE_KEY, 'accepted'); } catch (e) {}
-    try { var d = new Date(); d.setTime(d.getTime() + 365*24*60*60*1000); document.cookie = COOKIE_KEY + '=accepted; expires=' + d.toUTCString() + '; path=/; SameSite=Lax'; } catch (e) {}
+    document.cookie = COOKIE_KEY + '=accepted; path=/; max-age=31536000; SameSite=Lax';
   }
-  function loadPostHog() {
-    if (posthogLoaded) return;
-    posthogLoaded = true;
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}p||((p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",p.onerror=function(){p=null},(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r));var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],o="gu mu yu bu ku init capture getExtension register register_once register_for_session unregister unregister_for_session getFeatureFlag isFeatureEnabled on onFeatureFlags identify setPersonProperties reset captureException".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    window.posthog.init('phc_xokbFwsZFWtYZ4jFYoPEs8J55BUdiZhwLuncgGBjvmpz', {
-      api_host: 'https://us.i.posthog.com',
-      defaults: '2025-05-30',
-      person_profiles: 'identified_only'
+
+  function loadMetrika() {
+    if (metrikaLoaded || !YM_COUNTER_ID) return;
+    metrikaLoaded = true;
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < e.scripts.length; j++) { if (e.scripts[j].src === r) { return; } }
+      k = e.createElement(t); a = e.getElementsByTagName(t)[0];
+      k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+    window.ym(YM_COUNTER_ID, 'init', {
+      clickmap: false,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: false
     });
   }
-  if (hasConsent()) loadPostHog();
+
+  if (hasConsent()) loadMetrika();
   else if (banner) {
     banner.hidden = false;
-    if (acceptBtn) acceptBtn.addEventListener('click', function () { saveConsent(); banner.hidden = true; loadPostHog(); });
+    if (acceptBtn) acceptBtn.addEventListener('click', function () { saveConsent(); banner.hidden = true; loadMetrika(); });
   }
 
 })();
