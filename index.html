@@ -859,7 +859,7 @@ button{font-family:inherit;color:inherit}
         <span class="tariff-banner-icon" aria-hidden="true">₽</span>
         <span class="tariff-banner-text">
           <span class="tariff-banner-label">Тарифы</span>
-          <span class="tariff-banner-title">Соберите свой тариф · от 2 990 ₽</span>
+          <span class="tariff-banner-title" id="tariffBannerPrice">Соберите свой тариф · от 2 990 ₽</span>
         </span>
         <span class="tariff-banner-arrow" aria-hidden="true">→</span>
       </a>
@@ -1659,25 +1659,32 @@ button{font-family:inherit;color:inherit}
 
   /* 4. Tariffs — обновляем select в форме + (опционально) заголовок баннера */
   function applyTariffs(tariffs) {
-    if (!tariffs) return;
-    DATA.tariffs = tariffs;
+  if (!tariffs) return;
+  DATA.tariffs = tariffs;
 
-    var select = doc.getElementById('tariffSelect');
-    if (!select) return;
-    var map = [['base','BASE'], ['premium','PREMIUM'], ['elite','ELITE']];
-    map.forEach(function (pair) {
-      var key = pair[0], label = pair[1];
-      var t = tariffs[key];
-      if (!t || !t.price_frontend) return;
-      var optVal = label + ' — ' + formatRub(t.price_frontend);
-      Array.prototype.forEach.call(select.options, function (opt) {
-        if (opt.value.indexOf(label) === 0) {
-          opt.value = optVal;
-          opt.textContent = optVal;
-        }
-      });
-    });
+  // 1) Обновляем бейдж "Соберите свой тариф · от X ₽" (независимо от select)
+  var bannerTitle = doc.getElementById('tariffBannerPrice');
+  if (bannerTitle && tariffs.base && tariffs.base.price_frontend) {
+    bannerTitle.textContent = 'Соберите свой тариф · от ' + formatRub(tariffs.base.price_frontend);
   }
+
+  // 2) Обновляем опции в селекте формы
+  var select = doc.getElementById('tariffSelect');
+  if (!select) return;
+  var map = [['base','BASE'], ['premium','PREMIUM'], ['elite','ELITE']];
+  map.forEach(function (pair) {
+    var key = pair[0], label = pair[1];
+    var t = tariffs[key];
+    if (!t || !t.price_frontend) return;
+    var optVal = label + ' — ' + formatRub(t.price_frontend);
+    Array.prototype.forEach.call(select.options, function (opt) {
+      if (opt.value.indexOf(label) === 0) {
+        opt.value = optVal;
+        opt.textContent = optVal;
+      }
+    });
+  });
+}
 
   /* ============================================================
      ЗАГРУЗКА JSON
