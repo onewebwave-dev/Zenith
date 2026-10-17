@@ -3,7 +3,7 @@
     "name": "Base",
     "tagline": "Небольшой аккуратный сайт: лендинг, визитка, портфолио.",
     "price_frontend": 2990,
-    "price_backend": 5490,
+    "price_backend": 7490,
     "time": "Ориентировочный срок: 1–2 дня",
     "features": [
       "Одностраничный сайт",
@@ -17,8 +17,8 @@
   "premium": {
     "name": "Premium",
     "tagline": "Сайт на 2–5 страниц с продуманной структурой и анимациями.",
-    "price_frontend": 5990,
-    "price_backend": 8990,
+    "price_frontend": 6990,
+    "price_backend": 11490,
     "time": "Ориентировочный срок: 2–4 дня",
     "features": [
       "Сайт на 2–5 страниц",
@@ -32,8 +32,8 @@
   "elite": {
     "name": "Elite",
     "tagline": "Расширенный сайт с индивидуальным дизайном и сложной структурой.",
-    "price_frontend": 9990,
-    "price_backend": 12990,
+    "price_frontend": 12990,
+    "price_backend": 17990,
     "time": "Ориентировочный срок: 3–5 дней",
     "features": [
       "Сайт на 4–6 страниц",
